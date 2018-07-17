@@ -6,7 +6,7 @@ import pickle
 
 """
 DOWNLOAD LINK IF ISSUES:
-https://github.com/Yazaar/Streamlabs-Chatbot-Scripts
+https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/Gamble
 
 """
 #---------------------------------------
