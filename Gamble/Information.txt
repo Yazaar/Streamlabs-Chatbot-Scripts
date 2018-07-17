@@ -48,9 +48,18 @@ I assume that you still have !gamble as command, remember to swap it out to your
 (capital letters do not matter)
 
 Examples:
+Input: !gamble edit ChannelCooldown 20
+Response: The channel cooldown for the command is now 20 seconds.
 
+Input: !gamble edit Command !change
+Response: The the new command is now !change.
 
+Input: !gamble edit Win 1 48
+Response: When randomizer picks or picks between 1 and 48 is there now a win, make sure the other numbers do not collide!
+Response: Win: 1 - 48 | Loss: 49 - 98 | 2xWin: 99 - 100 (Not the roll numbers!)
 
+Input: !gamble edit CommandPermission subscriber
+Response: The required permission for the command is now set to subscriber
 
 ----------------
 !gamble edit Command [command]	>> Use this to set a custom command!
