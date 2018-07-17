@@ -593,7 +593,7 @@ def Execute(data):
 					with open(WinLowFile, "w+") as f:
 						f.write(str(data.GetParam(3)))
 						m_WinLow = int(data.GetParam(3))
-					Message = "When randomizer picks or picks between MyNumberLow and MyNumberHigh is there now a loss, make sure the other numbers do not collide!"
+					Message = "When randomizer picks or picks between MyNumberLow and MyNumberHigh is there now a win, make sure the other numbers do not collide!"
 					Message = Message.replace("MyNumberLow", str(data.GetParam(3)))
 					Message = Message.replace("MyNumberHigh", str(data.GetParam(4)))
 					Parent.SendTwitchMessage(Message)
