@@ -1,2 +1,2 @@
 # Streamlabs Chatbot Scripts 
-Change branches for different scripts!
+# Change branches for different scripts!
