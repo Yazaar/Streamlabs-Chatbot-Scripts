@@ -62,6 +62,8 @@ Input: !gamble edit CommandPermission subscriber
 Response: The required permission for the command is now set to subscriber
 
 ----------------
+!gamble download >> Shows you a download link to this and other scripts by me.
+----------------
 !gamble edit Command [command]	>> Use this to set a custom command!
 !GambleScriptCommand		>> Use this to show what command you have (available to everyone)
 ----------------
@@ -100,11 +102,7 @@ INFO: A randomizer picks a number between 1 and 100, the number makes it to a wi
 ----------------
 !gamble edit MinimumGamble [number] >> Change the minimum required gamble amount.
 !gamble show MinimumGamble	>> Shows current minimum required gamble amount.
-
-
-!!! The filepath to this document underneath !!!
-
+----------------
 
 The filepath for this document is: (Feel free to COPY it to any destination)
-
 THIS_DOCUMENTS_FILE_PATH
