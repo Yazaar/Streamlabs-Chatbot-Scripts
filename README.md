@@ -1,4 +1,5 @@
 # Streamlabs Chatbot Scripts
+Link to all scripts: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/master <br />
 This is my own gamble script. <br /> <br />
 
 Includes: <br />
