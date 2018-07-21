@@ -1,5 +1,6 @@
 # Streamlabs Chatbot Scripts 
 # Change branches for different scripts!
+Give me suggestions on new scripts: https://goo.gl/forms/EQCQQ4xDUk45MzCL2 <br /> <br />
 How to install my scripts: <br />
 1. Go to the script you want to download (press the link) <br />
 2. Press the green button named "Clone or Download" and press "Download ZIP" <br />
