@@ -2,7 +2,7 @@
 # Personal commands Script
 Link to all scripts: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/master <br />
 How to install: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/master <br />
-This is my own gamble script. <br />
+This is my own command script. <br />
 Nightbot is needed for this script, the commands is created there!<br /> <br />
 
 Includes: <br />
