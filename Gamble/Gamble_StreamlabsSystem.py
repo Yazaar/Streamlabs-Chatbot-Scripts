@@ -6,7 +6,7 @@ import pickle
 
 """
 DOWNLOAD LINK IF ISSUES:
-https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/Gamble
+https://github.com/Yazaar/Streamlabs-Chatbot-Scripts
 
 """
 #---------------------------------------
@@ -703,7 +703,7 @@ def Execute(data):
 		Parent.SendTwitchMessage(Message)
 		return
 
-	if data.IsChatMessage() and data.GetParam(0).lower() == m_Command and data.GetParamCount() == 4:
+	if data.IsChatMessage() and data.GetParam(0).lower() == m_Command:
 		if data.GetParam(1).lower() == "editors" and data.GetParamCount() == 4:
 			if data.User == Parent.GetChannelName().lower():
 				if data.GetParam(2).lower() == "add":
@@ -740,6 +740,9 @@ def Execute(data):
 				Message = Message.replace("MyUser", str(Parent.GetDisplayName((Parent.GetChannelName().lower()))))
 				Parent.SendTwitchMessage(Message)
 				return
+		
+		if data.GetParam(1).lower() == "instructions" and data.GetParamCount() == 2 and data.User == Parent.GetChannelName().lower():
+			os.startfile(str(InformationFile))
 #---------------------------------------
 # [Required] Tick Function
 #---------------------------------------
