@@ -7,7 +7,6 @@ import pickle
 """
 DOWNLOAD LINK IF ISSUES:
 https://github.com/Yazaar/Streamlabs-Chatbot-Scripts
-
 """
 #---------------------------------------
 # [Required] Script Information
@@ -29,8 +28,6 @@ IfPersonalCooldownMessageFile = os.path.join(os.path.dirname(__file__), "Setting
 LossHighFile = os.path.join(os.path.dirname(__file__), "Settings\LossHigh.txt")
 LossLowFile = os.path.join(os.path.dirname(__file__), "Settings\LossLow.txt")
 MinimumGambleFile = os.path.join(os.path.dirname(__file__), "Settings\MinimumGamble.txt")
-OfflineMessageFile = os.path.join(os.path.dirname(__file__), "Settings\OfflineMessage.txt")
-OnlineMessageFile = os.path.join(os.path.dirname(__file__), "Settings\OnlineMessage.txt")
 PersonalCooldownFile = os.path.join(os.path.dirname(__file__), "Settings\PersonalCooldown.txt")
 WinHighFile = os.path.join(os.path.dirname(__file__), "Settings\WinHigh.txt")
 WinLowFile = os.path.join(os.path.dirname(__file__), "Settings\WinLow.txt")
@@ -75,12 +72,6 @@ with open(MinimumGambleFile, "r") as f:
 	m_MinimumGamble = f.read()
 	m_MinimumGamble = int(m_MinimumGamble)
 
-with open(OfflineMessageFile, "r") as f:
-	m_CommandDown = f.read()
-
-with open(OnlineMessageFile, "r") as f:
-	m_CommandUp = f.read()
-
 with open(PersonalCooldownFile, "r") as f:
 	m_PersonalCooldownSeconds = f.read()
 	m_PersonalCooldownSeconds = int(m_PersonalCooldownSeconds)
@@ -121,8 +112,6 @@ def Init():
 			f.write(ChangePath)
 		ChangePath = None
 		os.startfile(str(InformationFile))
-	if m_CommandUp == "true":
-		Parent.SendTwitchMessage("/me Gamble command online")
 #---------------------------------------
 # [Required] Execute Data / Process Messages
 #---------------------------------------
@@ -748,10 +737,3 @@ def Execute(data):
 #---------------------------------------
 def Tick():
  return
- 
-#---------------------------------------
-# Command Shutdown Function
-#---------------------------------------
-def Unload():
-	if m_CommandDown == "true":
-		Parent.SendTwitchMessage("/me Gamble went offline")
