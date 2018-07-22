@@ -7,7 +7,6 @@ import pickle
 """
 DOWNLOAD LINK IF ISSUES:
 https://github.com/Yazaar/Streamlabs-Chatbot-Scripts
-
 """
 #---------------------------------------
 # [Required] Script Information
