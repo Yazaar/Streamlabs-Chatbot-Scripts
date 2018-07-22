@@ -63,7 +63,7 @@ Input: !gamble edit CommandPermission subscriber
 Response: The required permission for the command is now set to subscriber
 
 ----------------
-!gamble Instructions 		>> Opens up this document
+!gamble instructions 		>> Opens up this document
 ----------------
 !gamble edit Command [command]	>> Use this to set a custom command!
 !GambleScriptCommand		>> Use this to show what command you have (available to everyone)
@@ -88,12 +88,6 @@ INFO: A randomizer picks a number between 1 and 100, the number makes it to a wi
 
 !gamble edit PersonalCooldownMessage [true/false] >> Change if you want a message output when trying to gamble during personal cooldown.
 !gamble show PersonalCooldownMessage >> Shows if message output is set to true or false when trying to gamble during channel cooldown.
-----------------
-!gamble edit CommandOnlineMessage [true/false] >> Change if you want a message output when script goes online.
-!gamble show CommandOnlineMessage >> Shows if message output is set to true or false when script goes online.
-
-!gamble edit CommandOfflineMessage [true/false] >> Change if you want a message output when script goes offline.
-!gamble show CommandOfflineMessage >> Shows if message output is set to true or false when script goes offline.
 ----------------
 !gamble edit CommandPermission [permission] >> Change the required permission to use the command. Available permissions: everyone, regular, gamewisp_subscriber, subscriber, moderator, editor, caster
 !gamble show CommandPermission	>> Shows the current required permission to use the command.
