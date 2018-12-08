@@ -1,0 +1,70 @@
+﻿{
+  "output_file": "settings.json",
+
+  "PyPath": {
+    "type": "textbox",
+    "value": "Python",
+    "label": "Path to Python",
+    "tooltip": "'Python' works if a python starts when 'Python' is written in cmd. Else, press settings top right and copy the property 'Python 2.7.13 Directory' to here.",
+    "group": "General"
+  },
+  "Permission": {
+    "type": "dropdown",
+    "value": "Everyone",
+    "items": [
+      "Everyone",
+      "Regular",
+      "VIP+",
+      "VIP Exclusive",
+      "Subscriber",
+      "GameWisp Subscriber",
+      "User_Specific",
+      "Min_Rank",
+      "Min_Points",
+      "Min_Hours",
+      "Moderator",
+      "Editor",
+      "Caster"
+    ],
+    "label": "Permission",
+    "tooltip": "Set the permission for use of command",
+    "group": "General"
+  },
+  "PermissionInfo": {
+    "type": "textbox",
+    "value": "",
+    "label": "Permission info",
+    "tooltip": "Leave blank, type a number or the specific users\n(like this: User1 User2 User3 User4)",
+    "group": "General"
+  },
+  "Command": {
+    "type": "textbox",
+    "value": "!pyinstall",
+    "label": "Command to trigger script",
+    "tooltip": "Default = !pyinstall",
+    "group": "General"
+  },
+  "Cooldown": {
+    "type": "numberbox",
+    "label": "Personal cooldown after 'No permission!' message",
+    "value": 60,
+    "tooltip": "Cooldown in seconds.",
+    "group": "General"
+  },
+  "OpenInfoFile": {
+    "type": "button",
+    "label": "Open information file",
+    "tooltip": "Open information file.\nNot working? Should work after restarting the bot.",
+    "function": "OpenPyInstallerInfo",
+    "wsevent": "",
+    "group": "General"
+  },
+  "Reload": {
+    "type": "button",
+    "label": "Reload",
+    "tooltip": "Reload the script settings (save first). Not working? Should work after restarting the bot, or reload all scripts with the button located top right.",
+    "function": "ReloadPyInstallerScript",
+    "wsevent": "",
+    "group": "General"
+  }
+ }
