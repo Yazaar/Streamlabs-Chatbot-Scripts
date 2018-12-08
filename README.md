@@ -1,7 +1,8 @@
 # Streamlabs Chatbot Scripts
 # PyInstaller Script
 Link to all scripts + How to install: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/master <br />
-This is my own script installer! <br /> <br />
+This is my own script installer! <br />
+Installable scripts thru PyInstaller: https://yazaar.github.io/Streamlabs-PyInstaller-Properties/ <br /> <br />
 
 Includes: <br />
 !pyinstall [script name]  >> Install the chosen script <br />
