@@ -1,7 +1,13 @@
 # Streamlabs Chatbot Scripts 
 # Change branches for different scripts!
 Give me suggestions on new scripts: https://goo.gl/forms/EQCQQ4xDUk45MzCL2 <br /> <br />
-How to install my scripts: <br />
+
+How to install my scripts (method 1): <br />
+1. Install the PyInstaller script thru method 2
+2. type "!pyinstall [script name]" in your chat to automatically install the script!
+3. DONE! Do the same with other scripts on this list: https://yazaar.github.io/Streamlabs-PyInstaller-Properties/
+
+How to install my scripts (method 2): <br />
 1. Go to the script you want to download (press the link) <br />
 2. Press the green button named "Clone or Download" and press "Download ZIP" <br />
 3. Go to the downloaded file and open the ZIP file. <br />
@@ -12,5 +18,6 @@ I could not find the ZIP file if the chatbot and the ZIP was on different disks,
 8. The script is now installed! <br /> <br />
 
 Available Scripts: <br />
+PyInstaller - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/PyInstaller <br />
 Gamble - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/Gamble <br />
 ViewerCommands: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/ViewerCommands
