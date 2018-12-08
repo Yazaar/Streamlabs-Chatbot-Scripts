@@ -5,7 +5,7 @@ I will not waste your time.
 
 The filepath to this document can be found on the bottom of this document!
 
-You can also open up this document with !gamble instructions (limited to caster)
+You can as well open this document up with "!gamble instructions" (limited to caster)
 --------------------------------------------------------
 
 This gamble script is really advanced to make the experiece as good as possible.
@@ -17,7 +17,7 @@ The only ones who can change these are the caster and the editors.
 
 As standard is only yazaar (the creator) an editor.
 Remove it with the command found underneath.
-( !gamble editors remove yazaar )
+( "!gamble editors remove yazaar" )
 
 -------------------------------------------------------
 
