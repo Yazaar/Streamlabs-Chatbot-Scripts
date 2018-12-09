@@ -5,7 +5,7 @@
     "type": "textbox",
     "value": "Python",
     "label": "Path to Python",
-    "tooltip": "'Python' works if a python starts when 'Python' is written in cmd. Else, press settings top right and copy the property 'Python 2.7.13 Directory' to here.",
+    "tooltip": "'Python' works if a python starts when 'Python' is written in cmd. Else, press settings top right and copy the property 'Python 2.7.13 Directory' to here. BUT REPLACE 'Lib' WITH 'Python'",
     "group": "General"
   },
   "Permission": {
