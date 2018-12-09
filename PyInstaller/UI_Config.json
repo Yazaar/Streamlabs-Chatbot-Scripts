@@ -54,7 +54,7 @@
   "OpenInfoFile": {
     "type": "button",
     "label": "Open information file",
-    "tooltip": "Open information file.\nNot working? Should work after restarting the bot.",
+    "tooltip": "Open information file.\nNot working? Reload the script settings window (leftclick on annother script and then back)",
     "function": "OpenPyInstallerInfo",
     "wsevent": "",
     "group": "General"
@@ -62,7 +62,7 @@
   "Reload": {
     "type": "button",
     "label": "Reload",
-    "tooltip": "Reload the script settings (save first). Not working? Should work after restarting the bot, or reload all scripts with the button located top right.",
+    "tooltip": "Reload the script settings (save first).\nNot working? Reload the script settings window (leftclick on annother script and then back)",
     "function": "ReloadPyInstallerScript",
     "wsevent": "",
     "group": "General"
