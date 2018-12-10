@@ -1,7 +1,7 @@
 #---------------------------------------
 # Import Libraries
 #---------------------------------------
-import codecs, datetime, json, os, random, zipfile, time, sys
+import codecs, json, os, zipfile
 
 """
 DOWNLOAD LINK IF ISSUES:
@@ -12,7 +12,7 @@ https://github.com/Yazaar/Streamlabs-Chatbot-Scripts
 #---------------------------------------
 ScriptName = "PyInstaller"
 Website = "https://www.twitch.tv/yazaar"
-Description = "PyInstaller - Install scripts thru chat"
+Description = "PyInstaller - Install scripts thru the chat"
 Creator = "Yazaar"
 Version = "0.0.1"
 #---------------------------------------
