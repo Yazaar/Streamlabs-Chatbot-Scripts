@@ -2,7 +2,6 @@
 # Import Libraries
 #---------------------------------------
 import os
-import pickle
 
 """
 DOWNLOAD LINK IF ISSUES:
@@ -33,7 +32,7 @@ WinHighFile = os.path.join(os.path.dirname(__file__), "Settings\WinHigh.txt")
 WinLowFile = os.path.join(os.path.dirname(__file__), "Settings\WinLow.txt")
 PermissionFile = os.path.join(os.path.dirname(__file__), "Settings\Permission.txt")
 ShowPermissionFile = os.path.join(os.path.dirname(__file__), "Settings\ShowPermission.txt")
-AdminsFile = os.path.join(os.path.dirname(__file__), "Settings\Admins.pickle")
+AdminsFile = os.path.join(os.path.dirname(__file__), "Settings\Admins.txt")
 FreshInstallFile = os.path.join(os.path.dirname(__file__), "Settings\FreshInstall.txt")
 InformationFile = os.path.join(os.path.dirname(__file__), "Information.txt")
 #---------------------------------------
@@ -90,8 +89,8 @@ with open(PermissionFile, "r") as f:
 with open(ShowPermissionFile, "r") as f:
 	m_ShowPermission = f.read()
 
-with open(AdminsFile, "rb") as f:
-    m_Admins = pickle.load(f)
+with open(AdminsFile, "r") as f:
+    m_Admins = f.read().split(" ")
 
 with open(FreshInstallFile, "r") as f:
 	m_FreshInstall = f.read()
@@ -120,7 +119,7 @@ def Execute(data):
 	if data.IsChatMessage() and data.GetParam(0).lower() == m_Command.lower():
 	
 		if not Parent.HasPermission(data.User, m_CommandPermission, ""):
-			Parent.SendTwitchMessage("/me No permission to use command...")
+			Parent.SendStreamMessage("/me No permission to use command...")
 			return
 		
 		if Parent.IsOnUserCooldown(ScriptName, m_Command, data.User) and not data.GetParam(1).lower() == "edit" and not data.GetParam(1).lower() == "show" and not data.GetParam(1).lower() == "editors":
@@ -129,7 +128,7 @@ def Execute(data):
 			Message = Message.replace("MyPersonalCooldown", str(MyPersonalCooldown))
 			Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 			if IfPersonalCooldownMessage == "true":
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 			return
 			
 		if Parent.IsOnCooldown(ScriptName, m_Command) and not data.GetParam(1).lower() == "edit" and not data.GetParam(1).lower() == "show" and not data.GetParam(1).lower() == "editors":
@@ -137,7 +136,7 @@ def Execute(data):
 			Message = "There are still a channel cooldown on MyChannelCooldown seconds for the command."
 			Message = Message.replace("MyChannelCooldown", str(MyChannelCooldown))
 			if IfChannelCooldownMessage == "true":
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 			return
 	
 		Param1 = data.GetParam(1).lower()
@@ -147,7 +146,7 @@ def Execute(data):
 		if data.GetParamCount() == 1:
 			Message = "MyCommand [number/percentage] | MyCommand random [number/percentage] [number/percentage]"
 			Message = Message.replace("MyCommand", str(m_Command))
-			Parent.SendTwitchMessage(Message)		
+			Parent.SendStreamMessage(Message)		
 			return
 
 		if Param1 == "all":
@@ -168,7 +167,7 @@ def Execute(data):
 			except ValueError:
 				Message = "Please insert valid data, MyCommand for instructions"
 				Message = Message.replace("MyCommand", str(m_Command))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 
 		if "%" in Param2:
@@ -182,7 +181,7 @@ def Execute(data):
 			except ValueError:
 				Message = "Please insert valid data, MyCommand for instructions"
 				Message = Message.replace("MyCommand", str(m_Command))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 
 		if "%" in Param3:
@@ -196,7 +195,7 @@ def Execute(data):
 			except ValueError:
 				Message = "Please insert valid data, MyCommand for instructions"
 				Message = Message.replace("MyCommand", str(m_Command))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 		
 		if Param1.isdigit() and data.GetParamCount() == 2:
@@ -204,7 +203,7 @@ def Execute(data):
 				Message = "You have to gamble at least MinimumGamble..."
 				Message = Message.replace("MinimumGamble", str(m_MinimumGamble))
 				Message = Message.replace("MyCurrency", str(Parent.GetCurrencyName()))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			MyGamble = int(Param1)
 			MyPoints = int(Parent.GetPoints(data.User))
@@ -219,7 +218,7 @@ def Execute(data):
 					Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 					Message = Message.replace("MyGamble", str(MyGamble))
 					Message = Message.replace("MyRoll", str(Roll))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 					Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 					return
@@ -232,7 +231,7 @@ def Execute(data):
 					Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 					Message = Message.replace("MyGamble", str(MyGamble))
 					Message = Message.replace("MyRoll", str(Roll))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 					Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 					return
@@ -245,7 +244,7 @@ def Execute(data):
 					Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 					Message = Message.replace("MyGamble", str(MyGamble*2))
 					Message = Message.replace("MyRoll", str(Roll))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 					Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 					return
@@ -256,7 +255,7 @@ def Execute(data):
 				Message = Message.replace("MyPoints", str(Parent.GetPoints(data.User)))
 				Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 				Message = Message.replace("MyGamble", str(MyGamble))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 				
 		elif Param1.lower() == "random" and data.GetParamCount() == 4 and Param2.isdigit() and Param3.isdigit():
@@ -271,7 +270,7 @@ def Execute(data):
 					Message = Message.replace("MyPoints", str(Parent.GetPoints(data.User)))
 					Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 					Message = Message.replace("MyGamble", str(MyNum2))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					return
 					
 				else:
@@ -287,7 +286,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -300,7 +299,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -313,7 +312,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble*2))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -326,7 +325,7 @@ def Execute(data):
 					Message = Message.replace("MyPoints", str(Parent.GetPoints(data.User)))
 					Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 					Message = Message.replace("MyGamble", str(MyNum1))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					return
 					
 				else:
@@ -342,7 +341,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -355,7 +354,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -368,7 +367,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble*2))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -380,7 +379,7 @@ def Execute(data):
 					Message = Message.replace("MyPoints", str(Parent.GetPoints(data.User)))
 					Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 					Message = Message.replace("MyGamble", str(MyNum1))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					return
 					
 				else:
@@ -396,7 +395,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -409,7 +408,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -422,7 +421,7 @@ def Execute(data):
 						Message = Message.replace("MyUser", Parent.GetDisplayName(data.User))
 						Message = Message.replace("MyGamble", str(MyGamble*2))
 						Message = Message.replace("MyRoll", str(Roll))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						Parent.AddCooldown(ScriptName, m_Command, m_ChannelCooldownSeconds)
 						Parent.AddUserCooldown(ScriptName, m_Command, data.User, m_PersonalCooldownSeconds)
 						return
@@ -436,7 +435,7 @@ def Execute(data):
 						m_ChannelCooldownSeconds = int(data.GetParam(3))
 						Message = "The channel cooldown for the command is now MyCooldown seconds."
 						Message = Message.replace("MyCooldown", str(m_ChannelCooldownSeconds))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 				
 				if data.GetParam(2).lower() == "command" and data.GetParamCount() == 4:
@@ -445,7 +444,7 @@ def Execute(data):
 						m_Command = str(data.GetParam(3).lower())
 						Message = "The the new command is now MyCommand."
 						Message = Message.replace("MyCommand", str(m_Command))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 						
 				if data.GetParam(2).lower() == "2xwin" and data.GetParamCount() == 5 and data.GetParam(3).isdigit() and data.GetParam(4).isdigit():
@@ -458,7 +457,7 @@ def Execute(data):
 					Message = "When randomizer picks or picks between MyNumberLow and MyNumberHigh is there now a big win (2x gamble). Make sure the other numbers do not collide! >>> Have to be low - high!"
 					Message = Message.replace("MyNumberLow", str(data.GetParam(3)))
 					Message = Message.replace("MyNumberHigh", str(data.GetParam(4)))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					Message = "Win: [1] - [2] | Loss: [3] - [4] | Big Win: [5] - [6] (Not the roll numbers!)"
 					Message = Message.replace("[1]", str(m_WinLow))
 					Message = Message.replace("[2]", str(m_WinHigh))
@@ -466,7 +465,7 @@ def Execute(data):
 					Message = Message.replace("[4]", str(m_LossHigh))
 					Message = Message.replace("[5]", str(m_HugeWinLow))
 					Message = Message.replace("[6]", str(m_HugeWinHigh))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					return
 							
 				if data.GetParam(2).lower() == "channelcooldownmessage" and data.GetParamCount() == 4:
@@ -476,7 +475,7 @@ def Execute(data):
 							IfChannelCooldownMessage = str(data.GetParam(3).lower())
 							Message = "Message for global cooldown is now set to MyStatus"
 							Message = Message.replace("MyStatus", str(data.GetParam(3).lower()))
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 							
 				if data.GetParam(2).lower() == "personalcooldownmessage" and data.GetParamCount() == 4:
@@ -486,7 +485,7 @@ def Execute(data):
 							IfPersonalCooldownMessage = str(data.GetParam(3).lower())
 							Message = "Message for personal cooldown is now set to MyStatus"
 							Message = Message.replace("MyStatus", str(data.GetParam(3).lower()))
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 				
 				if data.GetParam(2).lower() == "loss" and data.GetParamCount() == 5 and data.GetParam(3).isdigit() and data.GetParam(4).isdigit():
@@ -499,7 +498,7 @@ def Execute(data):
 					Message = "When randomizer picks or picks between MyNumberLow and MyNumberHigh is there now a loss, make sure the other numbers do not collide!"
 					Message = Message.replace("MyNumberLow", str(data.GetParam(3)))
 					Message = Message.replace("MyNumberHigh", str(data.GetParam(4)))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					Message = "Win: [1] - [2] | Loss: [3] - [4] | 2xWin: [5] - [6] (Not the roll numbers!)"
 					Message = Message.replace("[1]", str(m_WinLow))
 					Message = Message.replace("[2]", str(m_WinHigh))
@@ -507,7 +506,7 @@ def Execute(data):
 					Message = Message.replace("[4]", str(m_LossHigh))
 					Message = Message.replace("[5]", str(m_HugeWinLow))
 					Message = Message.replace("[6]", str(m_HugeWinHigh))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					return
 
 				if data.GetParam(2).lower() == "commandofflinemessage" and data.GetParamCount() == 4:
@@ -517,7 +516,7 @@ def Execute(data):
 							m_CommandDown = str(data.GetParam(3).lower())
 							Message = "Message when command goes offline is now set to MyStatus"
 							Message = Message.replace("MyStatus", str(data.GetParam(3).lower()))
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 
 				if data.GetParam(2).lower() == "commandonlinemessage" and data.GetParamCount() == 4:
@@ -527,7 +526,7 @@ def Execute(data):
 							m_CommandUp = str(data.GetParam(3).lower())
 							Message = "Message when command goes online is now set to MyStatus"
 							Message = Message.replace("MyStatus", str(data.GetParam(3).lower()))
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 
 				if data.GetParam(2).lower() == "commandpermission" and data.GetParamCount() == 4:
@@ -537,7 +536,7 @@ def Execute(data):
 							m_CommandPermission = str(data.GetParam(3).lower())
 							Message = "The required permission for the command is now set to MyPermission"
 							Message = Message.replace("MyPermission", str(data.GetParam(3).lower()))
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 					if data.GetParam(3).lower() == "gamewisp_subscriber":
 						with open(PermissionFile, "w+") as f:
@@ -545,7 +544,7 @@ def Execute(data):
 							m_CommandPermission = "GameWisp Subscriber"
 							Message = "The required permission for the command is now set to MyPermission"
 							Message = Message.replace("MyPermission", "GameWisp Subscriber")
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 				
 				if data.GetParam(2).lower() == "whocanshow" and data.GetParamCount() == 4:
@@ -555,7 +554,7 @@ def Execute(data):
 							m_ShowPermission = str(data.GetParam(3).lower())
 							Message = "The required permission to use show is now set to MyPermission"
 							Message = Message.replace("MyPermission", str(data.GetParam(3).lower()))
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 					if data.GetParam(3).lower() == "gamewisp_subscriber":
 						with open(ShowPermissionFile, "w+") as f:
@@ -563,7 +562,7 @@ def Execute(data):
 							m_ShowPermission = "GameWisp Subscriber"
 							Message = "The required permission to use show is now set to MyPermission"
 							Message = Message.replace("MyPermission", "GameWisp Subscriber")
-							Parent.SendTwitchMessage(Message)
+							Parent.SendStreamMessage(Message)
 							return
 
 				if data.GetParam(2).lower() == "personalcooldown" and data.GetParamCount() == 4 and data.GetParam(3).isdigit():
@@ -572,7 +571,7 @@ def Execute(data):
 						m_PersonalCooldownSeconds = int(data.GetParam(3))
 						Message = "The personal cooldown for the command is now MyCooldown seconds."
 						Message = Message.replace("MyCooldown", str(m_PersonalCooldownSeconds))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 
 				if data.GetParam(2).lower() == "win" and data.GetParamCount() == 5 and data.GetParam(3).isdigit() and data.GetParam(4).isdigit():
@@ -585,7 +584,7 @@ def Execute(data):
 					Message = "When randomizer picks or picks between MyNumberLow and MyNumberHigh is there now a win, make sure the other numbers do not collide!"
 					Message = Message.replace("MyNumberLow", str(data.GetParam(3)))
 					Message = Message.replace("MyNumberHigh", str(data.GetParam(4)))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					Message = "Win: [1] - [2] | Loss: [3] - [4] | 2xWin: [5] - [6] (Not the roll numbers!)"
 					Message = Message.replace("[1]", str(m_WinLow))
 					Message = Message.replace("[2]", str(m_WinHigh))
@@ -593,7 +592,7 @@ def Execute(data):
 					Message = Message.replace("[4]", str(m_LossHigh))
 					Message = Message.replace("[5]", str(m_HugeWinLow))
 					Message = Message.replace("[6]", str(m_HugeWinHigh))
-					Parent.SendTwitchMessage(Message)
+					Parent.SendStreamMessage(Message)
 					return
 
 				if data.GetParam(2).lower() == "minimumgamble" and data.GetParamCount() == 4 and data.GetParam(3).isdigit:
@@ -603,12 +602,12 @@ def Execute(data):
 						Message = "Minimum gamble is now set to MinGamble MyCurrency"
 						Message = Message.replace("MinGamble", str(data.GetParam(3)))
 						Message = Message.replace("MyCurrency", str(Parent.GetCurrencyName()))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 		
 		if data.GetParam(1).lower() == "show":
 			if not Parent.HasPermission(data.User, m_ShowPermission, ""):
-				Parent.SendTwitchMessage("/me No permission to show data...")
+				Parent.SendStreamMessage("/me No permission to show data...")
 				return
 			if data.GetParam(2).lower() == "winorloss" and data.GetParamCount() == 3:
 				Message = "Win: [1] - [2] | Loss: [3] - [4] | 2xWin: [5] - [6] (Not the roll numbers!)"
@@ -618,56 +617,56 @@ def Execute(data):
 				Message = Message.replace("[4]", str(m_LossHigh))
 				Message = Message.replace("[5]", str(m_HugeWinLow))
 				Message = Message.replace("[6]", str(m_HugeWinHigh))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 
 			if data.GetParam(2).lower() == "commandpermission" and data.GetParamCount() == 3:
 				Message = "Current permission for the command: MyPermission"
 				Message = Message.replace("MyPermission", str(m_CommandPermission))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 
 			if data.GetParam(2).lower() == "minimumgamble" and data.GetParamCount() == 3:
 				Message = "Minimum to gamble: MinimumGamble MyCurrency"
 				Message = Message.replace("MinimumGamble", str(m_MinimumGamble))
 				Message = Message.replace("MyCurrency", str(Parent.GetCurrencyName()))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 				
 			if data.GetParam(2).lower() == "channelcooldown" and data.GetParamCount() == 3:
 				Message = "Current channel cooldown: MyChannelCooldown seconds"
 				Message = Message.replace("MyChannelCooldown", str(m_ChannelCooldownSeconds))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			
 			if data.GetParam(2).lower() == "personalcooldown" and data.GetParamCount() == 3:
 				Message = "Current personal cooldown: MyPersonalCooldown seconds"
 				Message = Message.replace("MyPersonalCooldown", str(m_PersonalCooldownSeconds))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			
 			if data.GetParam(2).lower() == "personalcooldownmessage" and data.GetParamCount() == 3:
 				Message = "Response on personal cooldown is set to MyStatus"
 				Message = Message.replace("MyStatus", str(IfPersonalCooldownMessage))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			
 			if data.GetParam(2).lower() == "channelcooldownmessage" and data.GetParamCount() == 3:
 				Message = "Response on channel cooldown is set to MyStatus"
 				Message = Message.replace("MyStatus", str(IfChannelCooldownMessage))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			
 			if data.GetParam(2).lower() == "commandofflinemessage" and data.GetParamCount() == 3:
 				Message = "Response when command goes offline is set to MyStatus"
 				Message = Message.replace("MyStatus", str(m_CommandDown))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			
 			if data.GetParam(2).lower() == "commandonlinemessage" and data.GetParamCount() == 3:
 				Message = "Response when command goes online is set to MyStatus"
 				Message = Message.replace("MyStatus", str(m_CommandUp))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 			if data.GetParam(2).lower() == "editors" and data.GetParamCount() == 3:
 				Message = "Current editors for the command: MyEditors"
@@ -675,21 +674,21 @@ def Execute(data):
 				Message = Message.replace("[", "")
 				Message = Message.replace("]", "")
 				Message = Message.replace("'", "")
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 
 			if data.GetParam(2).lower() == "whocanshow" and data.GetParamCount() == 3:
 				Message = "The permission to use show is set to MyPermission"
 				Message = Message.replace("MyPermission", str(m_ShowPermission))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 				
 		if data.GetParam(1).lower() == "download" and data.GetParamCount() == 2:
-			Parent.SendTwitchMessage("Scripts from Yazaar can be found and downloaded here: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts")
+			Parent.SendStreamMessage("Scripts from Yazaar can be found and downloaded here: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts")
 	if data.IsChatMessage() and data.GetParam(0).lower() == "!gamblescriptcommand" and data.GetParamCount() == 1:
 		Message = "The command for the gamble script is MyCommand"
 		Message = Message.replace("MyCommand", str(m_Command))
-		Parent.SendTwitchMessage(Message)
+		Parent.SendStreamMessage(Message)
 		return
 
 	if data.IsChatMessage() and data.GetParam(0).lower() == m_Command:
@@ -698,36 +697,36 @@ def Execute(data):
 				if data.GetParam(2).lower() == "add":
 					if not str(data.GetParam(3).lower()) in m_Admins:
 						m_Admins.append(str(data.GetParam(3).lower()))
-						with open(AdminsFile, "wb") as f:
-							pickle.dump(m_Admins, f)
+						with open(AdminsFile, "w") as f:
+							f.write(str(m_Admins).replace("[", "").replace("]", "").replace("'", "").replace(",", "").split(" "))
 						Message = "MyUser is now an editor for the command!"
 						Message = Message.replace("MyUser", str(data.GetParam(3).lower()))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 					else:
 						Message = "MyUser is already an editor for the command!"
 						Message = Message.replace("MyUser", str(data.GetParam(3).lower()))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 						
 				if data.GetParam(2).lower() == "remove":
 					if str(data.GetParam(3).lower()) in m_Admins:
 						m_Admins.remove(str(data.GetParam(3).lower()))
-						with open(AdminsFile, "wb") as f:
-							pickle.dump(m_Admins, f)
+						with open(AdminsFile, "w") as f:
+							f.write(str(m_Admins).replace("[", "").replace("]", "").replace("'", "").replace(",", "").split(" "))
 						Message = "MyUser is no longer an editor for the command!"
 						Message = Message.replace("MyUser", str(data.GetParam(3).lower()))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 					else:
 						Message = "MyUser is not an editor for the command!"
 						Message = Message.replace("MyUser", str(data.GetParam(3).lower()))
-						Parent.SendTwitchMessage(Message)
+						Parent.SendStreamMessage(Message)
 						return
 			else:
 				Message = "Only MyUser can manage editors for the command..."
 				Message = Message.replace("MyUser", str(Parent.GetDisplayName((Parent.GetChannelName().lower()))))
-				Parent.SendTwitchMessage(Message)
+				Parent.SendStreamMessage(Message)
 				return
 		
 		if data.GetParam(1).lower() == "instructions" and data.GetParamCount() == 2 and data.User == Parent.GetChannelName().lower():

@@ -15,10 +15,6 @@ All settings can be changed by specific commands and those can be found in this 
 The only ones who can change these are the caster and the editors.
  (Not the streamlabs chatbot editors)
 
-As standard is only yazaar (the creator) an editor.
-Remove it with the command found underneath.
-( "!gamble editors remove yazaar" )
-
 -------------------------------------------------------
 
 Standard settings:
@@ -26,7 +22,7 @@ Standard settings:
 Command: !gamble
 Minimum gamble: 1
 Winrates: Win 1 - 48 | Loss 49 - 98 | 2xWin 99 - 100
-Editors: yazaar
+Editors: (no editors, except caster)
 ----------------
 Cooldowns: (seconds)
 Personal cooldown: 30
