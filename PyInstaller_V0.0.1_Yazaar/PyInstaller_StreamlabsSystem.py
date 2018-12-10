@@ -1,7 +1,7 @@
 #---------------------------------------
 # Import Libraries
 #---------------------------------------
-import codecs, json, os, zipfile
+import codecs, datetime, json, os, random, zipfile, time, sys
 
 """
 DOWNLOAD LINK IF ISSUES:
@@ -12,7 +12,7 @@ https://github.com/Yazaar/Streamlabs-Chatbot-Scripts
 #---------------------------------------
 ScriptName = "PyInstaller"
 Website = "https://www.twitch.tv/yazaar"
-Description = "PyInstaller - Install scripts thru the chat"
+Description = "PyInstaller - Install scripts thru chat"
 Creator = "Yazaar"
 Version = "0.0.1"
 #---------------------------------------
@@ -85,9 +85,8 @@ def Execute(data):
 
     try:
       json_download = json.loads(root_json["response"])[str(data.GetParam(1)).lower()]["download"]
-      os.system("cd Services\Scripts\PyInstaller & " + Settings["PyPath"] + " PyInstaller.py " + str(json_download))
-      Parent.SendStreamMessage("/me [PyInstaller] Installation of " + str(data.GetParam(1)) + " should be complete.")
-
+      os.system("cd Services\Scripts\PyInstaller_V0.0.1_Yazaar & " + Settings["PyPath"] + " PyInstaller.py " + str(json_download))
+      Parent.SendStreamMessage("/me [PyInstaller] Installation of " + str(data.GetParam(1)) + " should be complete. Make sure to refresh your scripts (top right in scripts tab)")
     except Exception:
       Parent.SendStreamMessage("Does not exist, take a look here for available scripts: https://yazaar.github.io/Streamlabs-PyInstaller-Properties/")
 
