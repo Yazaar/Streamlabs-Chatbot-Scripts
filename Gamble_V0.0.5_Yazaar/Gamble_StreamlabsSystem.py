@@ -14,7 +14,7 @@ ScriptName = "Gamble"
 Website = "https://www.twitch.tv/yazaar"
 Description = "Gamble with special functions"
 Creator = "Yazaar"
-Version = "0.0.1"
+Version = "0.0.5"
 #---------------------------------------
 # FILES
 #---------------------------------------
@@ -90,7 +90,11 @@ with open(ShowPermissionFile, "r") as f:
 	m_ShowPermission = f.read()
 
 with open(AdminsFile, "r") as f:
-    m_Admins = f.read().split(" ")
+	temp = f.read()
+	if temp == "":
+		m_Admins = []
+	else:
+		m_Admins = temp.split(" ")
 
 with open(FreshInstallFile, "r") as f:
 	m_FreshInstall = f.read()
@@ -530,7 +534,7 @@ def Execute(data):
 							return
 
 				if data.GetParam(2).lower() == "commandpermission" and data.GetParamCount() == 4:
-					if data.GetParam(3).lower() == "everyone" or data.GetParam(3).lower() == "regular" or data.GetParam(3).lower() == "subscriber" or data.GetParam(3).lower() == "moderator" or data.GetParam(3).lower() == "editor" or data.GetParam(3).lower() == "caster":
+					if data.GetParam(3).lower() == "everyone" or data.GetParam(3).lower() == "regular" or data.GetParam(3).lower() == "subscriber" or data.GetParam(3).lower() == "moderator" or data.GetParam(3).lower() == "vip+" or data.GetParam(3).lower() == "editor" or data.GetParam(3).lower() == "caster":
 						with open(PermissionFile, "w+") as f:
 							f.write(str(data.GetParam(3).lower()))
 							m_CommandPermission = str(data.GetParam(3).lower())
@@ -538,12 +542,18 @@ def Execute(data):
 							Message = Message.replace("MyPermission", str(data.GetParam(3).lower()))
 							Parent.SendStreamMessage(Message)
 							return
-					if data.GetParam(3).lower() == "gamewisp_subscriber":
+					elif data.GetParam(3).lower() == "gamewisp_subscriber":
 						with open(PermissionFile, "w+") as f:
 							f.write("GameWisp Subscriber")
 							m_CommandPermission = "GameWisp Subscriber"
-							Message = "The required permission for the command is now set to MyPermission"
-							Message = Message.replace("MyPermission", "GameWisp Subscriber")
+							Message = "The required permission for the command is now set to GameWisp Subscriber"
+							Parent.SendStreamMessage(Message)
+							return
+					elif data.GetParam(3).lower() == "vip_exclusive":
+						with open(PermissionFile, "w+") as f:
+							f.write("VIP Exclusive")
+							m_CommandPermission = "VIP Exclusive"
+							Message = "The required permission for the command is now set to VIP Exclusive"
 							Parent.SendStreamMessage(Message)
 							return
 				
@@ -669,7 +679,7 @@ def Execute(data):
 				Parent.SendStreamMessage(Message)
 				return
 			if data.GetParam(2).lower() == "editors" and data.GetParamCount() == 3:
-				Message = "Current editors for the command: MyEditors"
+				Message = "Current editors for the command: MyEditors (" + str(len(m_Admins)) + " editors)"
 				Message = Message.replace("MyEditors", str(m_Admins))
 				Message = Message.replace("[", "")
 				Message = Message.replace("]", "")
@@ -697,8 +707,13 @@ def Execute(data):
 				if data.GetParam(2).lower() == "add":
 					if not str(data.GetParam(3).lower()) in m_Admins:
 						m_Admins.append(str(data.GetParam(3).lower()))
+						temp = ""
+
+						for i in m_Admins:
+							temp = temp + str(i) + " "
+
 						with open(AdminsFile, "w") as f:
-							f.write(str(m_Admins).replace("[", "").replace("]", "").replace("'", "").replace(",", "").split(" "))
+							f.write(temp[:-1])
 						Message = "MyUser is now an editor for the command!"
 						Message = Message.replace("MyUser", str(data.GetParam(3).lower()))
 						Parent.SendStreamMessage(Message)
@@ -712,8 +727,13 @@ def Execute(data):
 				if data.GetParam(2).lower() == "remove":
 					if str(data.GetParam(3).lower()) in m_Admins:
 						m_Admins.remove(str(data.GetParam(3).lower()))
+						temp = ""
+
+						for i in m_Admins:
+							temp = temp + str(i) + " "
+
 						with open(AdminsFile, "w") as f:
-							f.write(str(m_Admins).replace("[", "").replace("]", "").replace("'", "").replace(",", "").split(" "))
+							f.write(temp)
 						Message = "MyUser is no longer an editor for the command!"
 						Message = Message.replace("MyUser", str(data.GetParam(3).lower()))
 						Parent.SendStreamMessage(Message)

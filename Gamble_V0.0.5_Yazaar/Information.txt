@@ -3,20 +3,15 @@ Welcome to a gamble script made by Yazaar.
 Please read this document before using the script!
 I will not waste your time.
 
-The filepath to this document can be found on the bottom of this document!
-
-You can as well open this document up with "!gamble instructions" (limited to caster)
+You can open this document up with "!gamble instructions" (limited to caster)
 --------------------------------------------------------
-
 This gamble script is really advanced to make the experiece as good as possible.
 
 All settings can be changed by specific commands and those can be found in this document.
 
 The only ones who can change these are the caster and the editors.
  (Not the streamlabs chatbot editors)
-
 -------------------------------------------------------
-
 Standard settings:
 ----------------
 Command: !gamble
@@ -93,9 +88,3 @@ INFO: A randomizer picks a number between 1 and 100, the number makes it to a wi
 ----------------
 !gamble edit MinimumGamble [number] >> Change the minimum required gamble amount.
 !gamble show MinimumGamble	>> Shows current minimum required gamble amount.
-
-
-
-The filepath for this document is: (Feel free to COPY it to any destination)
-
-THIS_DOCUMENTS_FILE_PATH
