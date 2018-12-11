@@ -108,12 +108,11 @@ def Init():
 		with open(FreshInstallFile, "w+") as f:
 			f.write("false")
 		with open(InformationFile, "r") as f:
-			ChangePath = f.read()
-		ChangePath = ChangePath.replace("THIS_DOCUMENTS_FILE_PATH", str(os.path.realpath(__file__)))
-		ChangePath = ChangePath.replace("Gamble_StreamlabsSystem.py", "Information.txt")
+			NameToFile = f.read()
+		NameToFile = NameToFile.replace("[NAME_OF_USER]", Parent.GetChannelName())
 		with open(InformationFile, "w+") as f:
-			f.write(ChangePath)
-		ChangePath = None
+			f.write(NameToFile)
+		NameToFile = None
 		os.startfile(str(InformationFile))
 #---------------------------------------
 # [Required] Execute Data / Process Messages
