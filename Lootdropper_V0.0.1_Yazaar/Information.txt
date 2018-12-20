@@ -1,0 +1,19 @@
+----> Welcome to LootDropper - a script by Yazaar  <----
+------------------------------------------------------
+This is a script for you who want to reward your active users
+by giving them opportunities to claim points in form of your
+streamlabs currency!
+
+The amount of points and how often is fully customizable
+thru streamlabs chatbots script settings UI.
+
+You are as well able to change every single message
+to give it your own twist and style.
+
+Happy Streaming [NAME_OF_USER]!
+
+
+No clue where to change settings?
+1. Head to the scripts tab in your streamlabs chatbot client
+2. Click on the script named LootDropper
+3. Settings should now be to your right
