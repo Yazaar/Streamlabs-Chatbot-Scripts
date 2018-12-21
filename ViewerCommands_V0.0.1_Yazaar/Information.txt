@@ -30,7 +30,7 @@ Simple walkthru:
 Examples:
 
 !mycom set This is my new command
-This will change the users command- response to "This is my new command"
+This will change the users command-response to "This is my new command"
 
 ------------------------------------------------------------------------
 Permission ---> ()
@@ -38,12 +38,12 @@ Permission ---> ()
 
 !mycom add [user]  >> Add user to the scripts system (Moderator)
 
-!mycom [remove/delete] >> Remove user from the scripts system (Moderator)
+!mycom remove/delete [user] >> Remove user from the scripts system (Moderator)
 
 !mycom users >> Shows all users who has a personal command. (Moderator)
 
-!mycom set [command input] >> Changes the users response for the command (Everyone in the scripts system)
+!mycom set [command input] >> Changes your personal command (chosen users)
 
 !mycom information >> This opens up this document. (Caster)
 
-!mycom download >> Get a download link to all of my scripts (everyone)
+!mycom download >> Get a download link to all of my scripts (Everyone)
