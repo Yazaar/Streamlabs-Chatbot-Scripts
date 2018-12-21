@@ -62,13 +62,13 @@ def Init():
 # [Required] Execute Data / Process Messages
 #---------------------------------------
 def Execute(data):
-  if data.GetParam(0).lower() == Settings["Command"] and data.GetParamCount() == 1:
+  if data.GetParam(0).lower() == Settings["Command"].lower() and data.GetParamCount() == 1:
     if NoPermission(data):
       return
     Parent.SendStreamMessage("Take a look here for available scripts: https://yazaar.github.io/Streamlabs-PyInstaller-Properties/")
     return
 
-  if data.GetParam(0).lower() == Settings["Command"] and data.GetParamCount() == 2:
+  if data.GetParam(0).lower() == Settings["Command"].lower() and data.GetParamCount() == 2:
 
     if Parent.IsOnUserCooldown(ScriptName,Settings["Command"],data.User):
       return
