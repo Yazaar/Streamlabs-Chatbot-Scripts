@@ -20,4 +20,5 @@ I could not find the ZIP file if the chatbot and the ZIP was on different disks,
 Available Scripts: <br />
 PyInstaller - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/PyInstaller <br />
 Gamble - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/Gamble <br />
-ViewerCommands: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/ViewerCommands
+ViewerCommands - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/ViewerCommands <br>
+LootDropper - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/LootDropper
