@@ -1,0 +1,171 @@
+﻿{
+  "output_file": "settings.json",
+
+  "Permission": {
+    "type": "dropdown",
+    "value": "Everyone",
+    "items": [
+      "Everyone",
+      "Regular",
+      "VIP+",
+      "VIP Exclusive",
+      "Subscriber",
+      "GameWisp Subscriber",
+      "User_Specific",
+      "Min_Rank",
+      "Min_Points",
+      "Min_Hours",
+      "Moderator",
+      "Editor",
+      "Caster"
+    ],
+    "label": "Command permission",
+    "tooltip": "Set the permission for use of command",
+    "group": "Administrative"
+  },
+  "PermissionInfo": {
+    "type": "textbox",
+    "value": "",
+    "label": "Permission info",
+    "tooltip": "Leave blank, type a number or the specific users\n(like this: User1 User2 User3 User4)",
+    "group": "Administrative"
+  },
+  "Command": {
+    "type": "textbox",
+    "value": "!lootdrop",
+    "label": "Command to trigger script",
+    "tooltip": "Default = !lootdrop",
+    "group": "Administrative"
+  },
+  "Cooldown": {
+    "type": "numberbox",
+    "label": "Personal cooldown after use of command",
+    "value": 20,
+    "tooltip": "Cooldown in seconds (I recommend to have it lower than the droptime for a chanse to join)",
+    "group": "Time configurations"
+  },
+  "ChannelCooldown": {
+    "type": "numberbox",
+    "label": "Channel cooldown after use of command",
+    "value": 0,
+    "tooltip": "This could cause to a problem where everyone wount have a chanse to join.",
+    "group": "Time configurations"
+  },
+  "DropTime": {
+    "type": "numberbox",
+    "label": "Active duration (Seconds)",
+    "value": 60,
+    "tooltip": "Cooldown in seconds",
+    "group": "Time configurations"
+  },
+  "SleepMin": {
+    "type": "numberbox",
+    "label": "Lowest inactive time (minutes)",
+    "value": 5,
+    "tooltip": "Cooldown in seconds",
+    "group": "Time configurations"
+  },
+  "SleepMax": {
+    "type": "numberbox",
+    "label": "Highest inactive time (minutes)",
+    "value": 15,
+    "tooltip": "Cooldown in seconds",
+    "group": "Time configurations"
+  },
+  "LotteryWinner": {
+    "type": "slider",
+    "label": "Percentage of entries to win the lottery",
+    "value": 0.25,
+    "min": 0,
+    "max": 1,
+    "ticks": 0.01,
+    "tooltip": "0.25 = of 4 users win 1 user the lottery",
+    "group": "Win configurations"
+  },
+  "LotteryPrice": {
+    "type": "numberbox",
+    "label": "Reward for winning the lottery",
+    "value": 500,
+    "tooltip": "The amount of points a user wins after the drop ends.",
+    "group": "Win configurations"
+  },
+  "JoinReward": {
+    "type": "numberbox",
+    "label": "Reward for joining the drop",
+    "value": 150,
+    "tooltip": "The amount of points a user wins after the drop ends.",
+    "group": "Win configurations"
+  },
+  "CooldownMessage": {
+    "type": "textbox",
+    "value": "/me $(Display) got a cooldown on $(Duration) seconds",
+    "label": "Message on cooldown",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "NoPermissionMessage": {
+    "type": "textbox",
+    "value": "/me $User got no permission to use $(Command)",
+    "label": "Message no permission",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "DropClosingMessage1": {
+    "type": "textbox",
+    "value": "The drops have ended, not enough entries to draw winners",
+    "label": "Message when drop ends, no winners",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "NoDropMessage": {
+    "type": "textbox",
+    "value": "No drops available...",
+    "label": "Message when drops are inactive",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "DropClosingMessage2": {
+    "type": "textbox",
+    "value": "The drops have ended! $(LotteryWinners) won $(LotteryReward) $(Currency)",
+    "label": "Message when drop ends, with winners",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "JoinedDropMessage": {
+    "type": "textbox",
+    "value": "$(Display) joined the drop and got $(JoinReward) $(Currency)",
+    "label": "Message joining drop",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "AlreadyInDropMessage": {
+    "type": "textbox",
+    "value": "/me $(Display) has already joined the drop!",
+    "label": "Message when user already in drop",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "DropStartingMessage": {
+    "type": "textbox",
+    "value": "Drops are now active for $(DropTime) seconds! Type $(Command) to join",
+    "label": "Message drops activates",
+    "tooltip": "",
+    "group": "Messages"
+  },
+  "OpenInfoFile": {
+    "type": "button",
+    "label": "Open information file",
+    "tooltip": "Open information file.\nNot working? Reload the script settings window (leftclick on annother script and then back)",
+    "function": "OpenLootDropperInfo",
+    "wsevent": "",
+    "group": ""
+  },
+  "Reload": {
+    "type": "button",
+    "label": "Reload",
+    "tooltip": "Reload the script settings (save first).\nNot working? Reload the script settings window (leftclick on annother script and then back)",
+    "function": "ReloadLootDropperScript",
+    "wsevent": "",
+    "group": ""
+  }
+ }
