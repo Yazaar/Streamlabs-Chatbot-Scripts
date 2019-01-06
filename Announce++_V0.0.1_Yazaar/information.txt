@@ -1,0 +1,46 @@
+Welcome to Warn & Announce, a script by Yazaar!
+
+Let your chosen users take more control over the stream.
+Make EVERYONE notice special messages from for example moderators.
+
+This can be done thru this script. The message pops up on to your stream
+with a sound.
+
+You might not want a sound on every single message (disturbs streamer) and because of
+this are you able to mute the sound by using -mute like this:
+
+!popup -#C4F1A2 -mute MESSAGE MESSAGE MESSAGE MESSAGE...
+!popup -a -mute MESSAGE MESSAGE MESSAGE MESSAGE...
+!popup -w -mute MESSAGE MESSAGE MESSAGE MESSAGE...
+!popup -aliceblue -mute MESSAGE MESSAGE MESSAGE MESSAGE...
+
+YOU HAVE TO USE EVERYTHING IN THE SHOWN ORDER ABOVE ( [COMMAND] [color/sound] [MUTE?] [MESSAGE] )
+
+Choose between a warning, announcement or KeyCode (described underneath).
+
+All three of them are customizable separatly. Pick fitting sounds and colors!
+
+
+Warning: Have for example red as a color and a sound that catches everyones attention.
+!popup -w MESSAGE MESSAGE MESSAGE MESSAGE...
+
+
+
+Announcement: Have for example green as a color and some sound of your liking.
+!popup -a MESSAGE MESSAGE MESSAGE MESSAGE...
+
+
+
+KeyCode: Pick the color that you think fits for the situation (the sound is always the same, except if you change it in settings)
+!popup -#C4F1A2 MESSAGE MESSAGE MESSAGE MESSAGE...
+!popup -blue MESSAGE MESSAGE MESSAGE MESSAGE...
+!popup -aliceblue MESSAGE MESSAGE MESSAGE MESSAGE...
+
+color names here:	https://github.com/bahamas10/css-color-names/blob/master/css-color-names.json
+color picker here:	https://htmlcolorcodes.com/color-picker/
+
+
+Before using the script are you required to "Insert API Key" (Scripts tab --> Rightclick script --> Insert API Key)
+On download are all sounds the same. Feel free to download any sound to use that (do not have a too long one...)
+
+Happy Streaming [NAME_OF_USER]
