@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Warn&Announce</title>
+
+    <style>
+        body {
+            margin: 0;
+
+        }
+
+        #toggle {
+            position: absolute;
+            transform: translate(-50%,-50%);
+            top: 50%;
+            left: 50%;
+            display: none;
+            background: #C0C0C0;
+            border: #000000 2px solid;
+            width: 700px;
+            animation: reveal 10s linear;
+        }
+
+        .light{
+            background: var(--color-theme);
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        .lightfilter2 {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            background: #00000052;
+            box-shadow: 0px 0px 0px var(--color-theme);
+            animation: blink 2s ease-in-out 3;
+        }
+
+        .lightfilter1 {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#00000000, #00000088);
+
+        }
+
+        #messagebox {
+            text-align: center;
+            margin: 100px 0 20px 0;
+            font-size: 30px;
+            font-family: monospace;
+            animation: reveal2 10s linear;
+        }
+
+        @keyframes blink {
+            0%, 100%{
+                background: #00000052;
+                box-shadow: 0px 0px 0px var(--color-theme);
+            }
+
+            50%, 75%{
+                background: #00000000;
+                box-shadow: 0px 0px 200px var(--color-theme);
+            }
+        }
+
+        @keyframes reveal {
+            0%, 100% {
+                width: 0;
+                border-radius: 0;
+            }
+
+            5%, 95% {
+                width: 700px;
+                border-radius: 0;
+
+            }
+
+            10%, 90% {
+                width: 700px;
+                border-radius: 25px;
+            }
+        }
+
+        @keyframes reveal2 {
+            0%, 4%, 96%, 100% {
+                font-size: 0;
+            }
+
+            5%, 95% {
+                font-size: 30px;
+            }
+        }
+
+    </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.1/howler.min.js"></script>
+<script src="settings.js"></script>
+<script src="API_Key.js"></script>
+
+</head>
+<body>
+    <div id="toggle">
+        <div class="light">
+            <div class="lightfilter2"><div class="lightfilter1"></div></div>
+        </div>
+        <article id="messagebox"></article>
+    </div>
+
+
+    <script>
+    
+    var soundAnnounce = new Howl({src: ['sounds\\' + settings.SoundAnnounce], volume: settings.SoundAnnounceVolume/100,});
+    var soundWarning = new Howl({src: ['sounds\\' + settings.SoundWarning], volume: settings.SoundWarningVolume/100,});
+    var SoundKeyCode = new Howl({src: ['sounds\\' + settings.SoundAnnounce], volume: settings.SoundKeyCodeVolume/100,});
+
+    var queue = []
+    var active = false
+    var colors = ["#ff1600", "#46e80c"]
+    var css_colors = {'aliceblue': '#f0f8ff', 'antiquewhite': '#faebd7', 'aqua': '#00ffff', 'aquamarine': '#7fffd4', 'azure': '#f0ffff', 'beige': '#f5f5dc', 'bisque': '#ffe4c4', 'black': '#000000', 'blanchedalmond': '#ffebcd', 'blue': '#0000ff', 'blueviolet': '#8a2be2', 'brown': '#a52a2a', 'burlywood': '#deb887', 'cadetblue': '#5f9ea0', 'chartreuse': '#7fff00', 'chocolate': '#d2691e', 'coral': '#ff7f50', 'cornflowerblue': '#6495ed', 'cornsilk': '#fff8dc', 'crimson': '#dc143c', 'cyan': '#00ffff', 'darkblue': '#00008b', 'darkcyan': '#008b8b', 'darkgoldenrod': '#b8860b', 'darkgray': '#a9a9a9', 'darkgreen': '#006400', 'darkgrey': '#a9a9a9', 'darkkhaki': '#bdb76b', 'darkmagenta': '#8b008b', 'darkolivegreen': '#556b2f', 'darkorange': '#ff8c00', 'darkorchid': '#9932cc', 'darkred': '#8b0000', 'darksalmon': '#e9967a', 'darkseagreen': '#8fbc8f', 'darkslateblue': '#483d8b', 'darkslategray': '#2f4f4f', 'darkslategrey': '#2f4f4f', 'darkturquoise': '#00ced1', 'darkviolet': '#9400d3', 'deeppink': '#ff1493', 'deepskyblue': '#00bfff', 'dimgray': '#696969', 'dimgrey': '#696969', 'dodgerblue': '#1e90ff', 'firebrick': '#b22222', 'floralwhite': '#fffaf0', 'forestgreen': '#228b22', 'fuchsia': '#ff00ff', 'gainsboro': '#dcdcdc', 'ghostwhite': '#f8f8ff', 'gold': '#ffd700', 'goldenrod': '#daa520', 'gray': '#808080', 'green': '#008000', 'greenyellow': '#adff2f', 'grey': '#808080', 'honeydew': '#f0fff0', 'hotpink': '#ff69b4', 'indianred': '#cd5c5c', 'indigo': '#4b0082', 'ivory': '#fffff0', 'khaki': '#f0e68c', 'lavender': '#e6e6fa', 'lavenderblush': '#fff0f5', 'lawngreen': '#7cfc00', 'lemonchiffon': '#fffacd', 'lightblue': '#add8e6', 'lightcoral': '#f08080', 'lightcyan': '#e0ffff', 'lightgoldenrodyellow': '#fafad2', 'lightgray': '#d3d3d3', 'lightgreen': '#90ee90', 'lightgrey': '#d3d3d3', 'lightpink': '#ffb6c1', 'lightsalmon': '#ffa07a', 'lightseagreen': '#20b2aa', 'lightskyblue': '#87cefa', 'lightslategray': '#778899', 'lightslategrey': '#778899', 'lightsteelblue': '#b0c4de', 'lightyellow': '#ffffe0', 'lime': '#00ff00', 'limegreen': '#32cd32', 'linen': '#faf0e6', 'magenta': '#ff00ff', 'maroon': '#800000', 'mediumaquamarine': '#66cdaa', 'mediumblue': '#0000cd', 'mediumorchid': '#ba55d3', 'mediumpurple': '#9370db', 'mediumseagreen': '#3cb371', 'mediumslateblue': '#7b68ee', 'mediumspringgreen': '#00fa9a', 'mediumturquoise': '#48d1cc', 'mediumvioletred': '#c71585', 'midnightblue': '#191970', 'mintcream': '#f5fffa', 'mistyrose': '#ffe4e1', 'moccasin': '#ffe4b5', 'navajowhite': '#ffdead', 'navy': '#000080', 'oldlace': '#fdf5e6', 'olive': '#808000', 'olivedrab': '#6b8e23', 'orange': '#ffa500', 'orangered': '#ff4500', 'orchid': '#da70d6', 'palegoldenrod': '#eee8aa', 'palegreen': '#98fb98', 'paleturquoise': '#afeeee', 'palevioletred': '#db7093', 'papayawhip': '#ffefd5', 'peachpuff': '#ffdab9', 'peru': '#cd853f', 'pink': '#ffc0cb', 'plum': '#dda0dd', 'powderblue': '#b0e0e6', 'purple': '#800080', 'rebeccapurple': '#663399', 'red': '#ff0000', 'rosybrown': '#bc8f8f', 'royalblue': '#4169e1', 'saddlebrown': '#8b4513', 'salmon': '#fa8072', 'sandybrown': '#f4a460', 'seagreen': '#2e8b57', 'seashell': '#fff5ee', 'sienna': '#a0522d', 'silver': '#c0c0c0', 'skyblue': '#87ceeb', 'slateblue': '#6a5acd', 'slategray': '#708090', 'slategrey': '#708090', 'snow': '#fffafa', 'springgreen': '#00ff7f', 'steelblue': '#4682b4', 'tan': '#d2b48c', 'teal': '#008080', 'thistle': '#d8bfd8', 'tomato': '#ff6347', 'turquoise': '#40e0d0', 'violet': '#ee82ee', 'wheat': '#f5deb3', 'white': '#ffffff', 'whitesmoke': '#f5f5f5', 'yellow': '#ffff00', 'yellowgreen': '#9acd32'}
+
+    function RunEngine() {
+        active = true
+        if (queue[0][2] == "false"){
+            if (queue[0][3] == "-a"){
+                document.getElementById("messagebox").style.setProperty("color", settings.TextColorAnnounce)
+                document.getElementById("toggle").style.setProperty("background", settings.BackgroundColorAnnounce)
+                soundAnnounce.play()
+            } else if (queue[0][3] == "-w"){
+                document.getElementById("messagebox").style.setProperty("color", settings.TextColorWarning)
+                document.getElementById("toggle").style.setProperty("background", settings.BackgroundColorWarning)
+                soundWarning.play()
+            } else if (queue[0][3] == "KeyCode"){
+                document.getElementById("messagebox").style.setProperty("color", settings.TextColorKeyCode)
+                document.getElementById("toggle").style.setProperty("background", settings.BackgroundColorKeyCode)
+                SoundKeyCode.play()
+            }
+        }
+        article = document.getElementById("messagebox")
+        article.innerHTML = queue[0][1]
+        document.documentElement.style.setProperty('--color-theme', queue[0][0])
+
+        document.getElementById("toggle").style.display = "block"
+        setTimeout(ShutdownEngine, 10000)
+    }
+
+    function ShutdownEngine(){
+        obj = document.getElementById("toggle")
+        obj.style.display = "none"
+        queue.shift()
+        if (queue.length > 0){
+            setTimeout(RunEngine, 1000)
+        } else {
+            active = false
+        }
+    }
+
+    //---------------------------------
+    //  Variables
+    //---------------------------------
+    var socket = new WebSocket(API_Socket);
+
+    //---------------------------------
+    //  Open Event
+    //---------------------------------
+    socket.onopen = function(){
+        // Format your Authentication Information
+        var auth = {
+            author: "AnkhHeart",
+            website: "https://Streamlabs.com",
+            api_key: API_Key,
+            events: [
+                "Warnings&AnnouncementsByYazaar",
+                "Warnings&AnnouncementsByYazaarRELOAD"
+            ]
+        }
+        
+        //  Send your Data to the server
+        socket.send(JSON.stringify(auth));
+    };
+
+    //---------------------------------
+    //  Error Event
+    //---------------------------------
+    socket.onerror = function(error){
+        //  Something went terribly wrong... Respond?!
+        console.log("Error: " + error);
+    }
+
+    //---------------------------------
+    //  Message Event
+    //---------------------------------
+    socket.onmessage = function (message) {
+        if (JSON.parse(message.data).event !== "Warnings&AnnouncementsByYazaar"){
+            return
+        }
+        
+        MyAction = JSON.parse(JSON.parse(message.data).data).color
+        MyMessage = JSON.parse(JSON.parse(message.data).data).message
+        MyMute = JSON.parse(JSON.parse(message.data).data).mute
+        MyType = JSON.parse(JSON.parse(message.data).data).type
+        
+        if (active){
+            queue.push([MyAction, MyMessage, MyMute, MyType])
+        } else {
+            queue.push([MyAction, MyMessage, MyMute, MyType])
+            RunEngine()
+        }
+    }
+
+    //---------------------------------
+    //  Close Event
+    //---------------------------------
+    socket.onclose = function () {
+        // Connection has been closed by you or the server
+        console.log("Connection Closed!");
+    }
+
+    </script>
+
+</body>
+</html>

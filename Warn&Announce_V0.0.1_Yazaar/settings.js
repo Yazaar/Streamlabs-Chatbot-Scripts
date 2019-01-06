@@ -1,0 +1,20 @@
+﻿var settings = {
+  "Command": "!popup",
+  "Permission": "Moderator",
+  "PermissionInfo": "",
+  "Cooldown": 180,
+  "SoundWarning": "sound.mp3",
+  "SoundWarningVolume": 10,
+  "BackgroundColorWarning": "rgba(255,102,105,1)",
+  "LightColorWarning": "rgba(255,0,0,1)",
+  "TextColorWarning": "rgba(0,0,0,1)",
+  "SoundAnnounce": "sound.mp3",
+  "SoundAnnounceVolume": 10,
+  "BackgroundColorAnnounce": "rgba(163,255,156,1)",
+  "LightColorAnnounce": "rgba(11,255,0,1)",
+  "TextColorAnnounce": "rgba(0,0,0,1)",
+  "SoundKeyCode": "sound.mp3",
+  "SoundKeyCodeVolume": 10,
+  "BackgroundColorKeyCode": "rgba(135,212,232,1)",
+  "TextColorKeyCode": "rgba(0,0,0,1)"
+};
