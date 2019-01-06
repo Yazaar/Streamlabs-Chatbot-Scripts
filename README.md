@@ -22,4 +22,4 @@ PyInstaller - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/PyInstal
 Gamble - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/Gamble <br />
 ViewerCommands - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/ViewerCommands <br>
 LootDropper - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/LootDropper <br>
-Warn&Announce - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/Warn%26Announce
+Announce++ - https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/tree/announce++
