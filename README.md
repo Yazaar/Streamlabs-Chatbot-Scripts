@@ -4,7 +4,21 @@ Back to main screen: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts <br>
 ----> Welcome to Announce++ - a script by Yazaar  <----<br>
 ------------------------------------------------------<br>
 Give your moderators the opportunity to easily reach all viewers!<br>
-Thru this script are specific users able to use commands to trigger an overlay on stream which includes their message and a sound as default. Look at the reference images underneath!
+Thru this script are specific users able to use commands to trigger an overlay on stream which includes their message and a sound as default. Look at the reference images underneath!<br><br>
 
-<img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn%26Announce/IMG1.PNG" style="width=500">
-<img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn%26Announce/IMG2.PNG" style="width=200">
+commands:<br>
+!popup -w MESSAGE >> Warning preset, with audio, standard color = red (the reference images)<br>
+!popup -w -mute MESSAGE >> Warning preset, without audio, standard color = red<br>
+!popup -a MESSAGE >> Announcement preset, with audio, standard color = green<br>
+!popup -w -mute MESSAGE >> Announcement preset, without audio, standard color = green<br><br>
+
+!popup -#FF4ACD MESSAGE >> KeyCode, with audio, standard color = whatver picked<br>
+!popup -#FF4ACD -mute MESSAGE >> KeyCode, without audio, standard color = whatver picked<br>
+!popup -aquamarine MESSAGE >> KeyCode, with audio, standard color = whatver picked<br>
+!popup -aquamarine -mute MESSAGE >> KeyCode, without audio, standard color = whatver picked<br><br>
+
+color picker: https://htmlcolorcodes.com/color-picker/<br>
+all color names: https://github.com/bahamas10/css-color-names/blob/master/css-color-names.json<br><br>
+
+<img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn%26Announce/IMG1.PNG" alt="" width="500">
+<img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn%26Announce/IMG2.PNG" alt="" width="1000">
