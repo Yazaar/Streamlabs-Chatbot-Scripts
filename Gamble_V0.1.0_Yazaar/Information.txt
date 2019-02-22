@@ -1,0 +1,10 @@
+Welcome to a gamble script made by Yazaar!
+
+Settings can be found in Streamlabs chatbot (click on this script in the scripts thab)
+
+How to use script:
+
+!gamble [value]     >> gamble that value
+!gamble [min] [max] >> gamble a random value between the 2 numbers
+
+Happy Streaming [NAME_OF_USER]!

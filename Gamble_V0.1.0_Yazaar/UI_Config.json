@@ -1,0 +1,194 @@
+﻿{
+  "output_file": "settings.json",
+
+  "Permission": {
+    "type": "dropdown",
+    "value": "Everyone",
+    "items": [
+      "Everyone",
+      "Regular",
+      "VIP+",
+      "VIP Exclusive",
+      "Subscriber",
+      "GameWisp Subscriber",
+      "User_Specific",
+      "Min_Rank",
+      "Min_Points",
+      "Min_Hours",
+      "Moderator",
+      "Editor",
+      "Caster"
+    ],
+    "label": "Command permission",
+    "tooltip": "Set the permission for use of command",
+    "group": "General"
+  },
+  "PermissionInfo": {
+    "type": "textbox",
+    "value": "",
+    "label": "Permission info",
+    "tooltip": "Leave blank, type a number or the specific users\n(like this: User1 User2 User3 User4)",
+    "group": "General"
+  },
+  "Command": {
+  "type": "textbox",
+  "value": "!gamble",
+  "label": "Command",
+  "tooltip": "Change the command for this function",
+  "group": "General"
+  },
+  "MinGamble": {
+    "type": "numberbox",
+    "label": "Minimum gamble",
+    "value": 1,
+    "tooltip": "Minimum gamble that is accepted",
+    "group": "General"
+  },
+  "PersonalCooldown": {
+    "type": "numberbox",
+    "label": "Personal Cooldown",
+    "value": 30,
+    "tooltip": "Cooldown in seconds",
+    "group": "Cooldowns"
+  },
+  "ChannelCooldown": {
+    "type": "numberbox",
+    "label": "Channel Cooldown",
+    "value": 5,
+    "tooltip": "Cooldown in seconds",
+    "group": "Cooldowns"
+  },
+  "WinChanse": {
+    "type": "numberbox",
+    "label": "Win chanse",
+    "value": 48,
+    "tooltip": "Chanse for a 1x win (higher = higher probability)",
+    "group": "probablilities"
+  },
+  "2xWinChanse": {
+    "type": "numberbox",
+    "label": "2x Win chanse",
+    "value": 2,
+    "tooltip": "Chanse for a 2x win (higher = higher probability)",
+    "group": "probablilities"
+  },
+  "LossRisk": {
+    "type": "numberbox",
+    "label": "Lose risk",
+    "value": 48,
+    "tooltip": "Risk for a loss (higher = higher probability)",
+    "group": "probablilities"
+  },
+  "NoPermissionMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have no permission to use the command!",
+  "label": "No permission",
+  "tooltip": "Bot response if no permission to use command",
+  "group": "Messages"
+  },
+  "ShowPermissionMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display no permission Message?",
+    "tooltip": "Display no permission Message?",
+    "group": "Messages"
+  },
+  "PersonalCooldownMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have $(CooldownLeft) seconds left on your cooldown!",
+  "label": "Personal cooldown",
+  "tooltip": "Bot response if the command is on personal cooldown",
+  "group": "Messages"
+  },
+  "ShowPersonalCooldownMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display personal cooldown Message?",
+    "tooltip": "Display Personal Cooldown Message?",
+    "group": "Messages"
+  },
+  "ChannelCooldownMessage": {
+  "type": "textbox",
+  "value": "$(Display), there is a channel cooldown on $(ChannelCooldown) seconds!",
+  "label": "Channel cooldown",
+  "tooltip": "Bot response if the command is on channel cooldown",
+  "group": "Messages"
+  },
+  "ShowChannelCooldownMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display channel cooldown Message?",
+    "tooltip": "Display channel cooldown Message?",
+    "group": "Messages"
+  },
+  "WinMessage": {
+  "type": "textbox",
+  "value": "$(Display) won a value of $(Amount) $(Currency)",
+  "label": "Win",
+  "tooltip": "Bot response on a 1x win message",
+  "group": "Messages"
+  },
+  "ShowWinMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display 1x win Message?",
+    "tooltip": "Display 1x win Message?",
+    "group": "Messages"
+  },
+  "2xWinMessage": {
+  "type": "textbox",
+  "value": "$(Display) won a value of $(Amount) $(Currency)",
+  "label": "2x win",
+  "tooltip": "Bot response on a 2x win",
+  "group": "Messages"
+  },
+  "Show2xWinMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display 2x win Message?",
+    "tooltip": "Display 2x win Message?",
+    "group": "Messages"
+  },
+  "LossMessage": {
+  "type": "textbox",
+  "value": "$(Display) lost a value of $(Amount) $(Currency)",
+  "label": "Loss",
+  "tooltip": "Bot response on a loss",
+  "group": "Messages"
+  },
+  "ShowLossMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display Loss Message?",
+    "tooltip": "Display Loss Message?",
+    "group": "Messages"
+  },
+  "NotEnoughMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have a total of $(CurrencyAmount) $(Currency) which means that you are unable to gamble $(Amount) $(Currency)...",
+  "label": "Too high",
+  "tooltip": "Bot response when user gamble too high",
+  "group": "Messages"
+  },
+  "ShowNotEnoughMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display too high Message?",
+    "tooltip": "Display too high Message?",
+    "group": "Messages"
+  },
+  "MinGambleMessage": {
+  "type": "textbox",
+  "value": "$(Display), you are not able to gamble less than $(MinGamble) $(Currency)...",
+  "label": "Too low",
+  "tooltip": "Bot response when user gamble too low",
+  "group": "Messages"
+  },
+  "ShowMinGambleMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display too low Message?",
+    "tooltip": "Display too low Message?",
+    "group": "Messages"
+  }
+ }
