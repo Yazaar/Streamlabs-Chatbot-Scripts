@@ -197,7 +197,7 @@ def ConvertMessage(data, raw_message):
 	Message = Message.replace("$(Roll)", str(Parent.GetRandom(1,101)))
 	return Message
 
-def ReloadScriptSettings():
+def ReloadGambleScript():
 	global Settings
 	with codecs.open(SettingsFile, encoding='utf-8-sig', mode='r') as f:
 		Settings = json.load(f, encoding='utf-8-sig')
