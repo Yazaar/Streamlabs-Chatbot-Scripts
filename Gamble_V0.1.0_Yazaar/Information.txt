@@ -7,4 +7,22 @@ How to use script:
 !gamble [value]     >> gamble that value
 !gamble [min] [max] >> gamble a random value between the 2 numbers
 
+Here are every single parmeter that you are able to use in your personal chat messages:
+
+$(Amount)                >> Returns the amount the user wins/loses (number)
+$(Roll)                  >> Returns a number between 1 and 100
+$(Username)              >> Returns the username who triggers the command in lowercase (ex: yazaar)
+$(Display)               >> Returns the displayname of the user who triggers the command (ex: Yazaar)
+$(CooldownLeft)          >> Returns the personal cooldown duration left of the user who triggers the command (number, seconds)
+$(ChannelCooldownLeft)   >> Returns the duration left on the channel cooldown (number, seconds)
+$(CurrencyAmount)        >> Returns the amount of points the user who triggerd the command has (number)
+$(TotalPersonalCooldown) >> Returns how long a personal cooldown is in seconds
+$(TotalChannelCooldown)  >> Returns how long the channel cooldown is in seconds
+$(MinGamble)             >> Returns the minumum amounts of points that the user has to gamble
+$(Currency)              >> Returns returns your currencyname
+$(Command)               >> Returns the commandname
+$(Permission)            >> Returns returns the permission for use of command
+$(PermissionInfo)        >> Returns returns whatever is in permission info
+
+
 Happy Streaming [NAME_OF_USER]!
