@@ -24,5 +24,4 @@ $(Command)               >> Returns the commandname
 $(Permission)            >> Returns returns the permission for use of command
 $(PermissionInfo)        >> Returns returns whatever is in permission info
 
-
 Happy Streaming [NAME_OF_USER]!
