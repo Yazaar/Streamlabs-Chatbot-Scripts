@@ -1,4 +1,4 @@
-﻿{
+{
   "output_file": "settings.json",
 
   "Permission": {
@@ -123,7 +123,7 @@
   },
   "WinMessage": {
   "type": "textbox",
-  "value": "$(Display) won a value of $(Amount) $(Currency)",
+  "value": "Rolled $(Roll) - $(Display) won a value of $(Amount) $(Currency)",
   "label": "Win",
   "tooltip": "Bot response on a 1x win message",
   "group": "Messages"
@@ -137,7 +137,7 @@
   },
   "2xWinMessage": {
   "type": "textbox",
-  "value": "$(Display) won a value of $(Amount) $(Currency)",
+  "value": "Rolled $(Roll) - $(Display) won a value of $(Amount) $(Currency)",
   "label": "2x win",
   "tooltip": "Bot response on a 2x win",
   "group": "Messages"
@@ -151,7 +151,7 @@
   },
   "LossMessage": {
   "type": "textbox",
-  "value": "$(Display) lost a value of $(Amount) $(Currency)",
+  "value": "Rolled $(Roll) - $(Display) lost a value of $(Amount) $(Currency)",
   "label": "Loss",
   "tooltip": "Bot response on a loss",
   "group": "Messages"
@@ -190,5 +190,13 @@
     "label": "Display too low Message?",
     "tooltip": "Display too low Message?",
     "group": "Messages"
+  },
+  "ReloadButton": {
+    "type": "button",
+    "label": "Reload settings",
+    "tooltip": "Reload script settings, make sure to save first.",
+    "function": "ReloadGambleScript",
+    "wsevent": "",
+    "group": ""
   }
  }
