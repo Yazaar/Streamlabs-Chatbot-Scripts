@@ -142,6 +142,13 @@
     "tooltip": "",
     "group": ""
   },
+  "ReverseMessage": {
+    "type": "checkbox",
+    "label": "Reverse the style of the MessageBox overlay",
+    "value": false,
+    "tooltip": "Does nothing for the older overlay",
+    "group": ""
+  },
   "OpenInfoFile": {
     "type": "button",
     "label": "Open information file",

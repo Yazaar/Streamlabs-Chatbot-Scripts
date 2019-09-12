@@ -1,0 +1,130 @@
+:root {
+    --backgroundColor: #f5f5f5;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.bubble {
+    width: 240px;
+    height: auto;
+    display: block;
+    background: var(--backgroundColor);
+    border-radius: 4px;
+    box-shadow: 2px 8px 5px #000;
+    position: relative;
+    margin: 0 0 20px 15px;
+    transform: scale(0);
+}
+
+.bubble.alt {
+    margin: 0;
+}
+
+.bubble .txt {
+    padding: 8px 55px 8px 14px;
+}
+
+.bubble .txt .name {
+    font-weight: 600;
+    font-size: 12px;
+    margin: 0 0 4px;
+    color: #2ecc71;
+}
+
+.bubble.alt .txt .name {
+    color: #2ecc71;
+}
+
+.bubble .txt .name span:nth-child(2) {
+    font-weight: normal;
+    color: rgba(0, 0, 0, .5);
+}
+
+
+.bubble .txt .message {
+    font-size: 12px;
+    margin: 0;
+    color: #2b2b2b;
+}
+
+.bubble .txt .timestamp {
+    font-size: 11px;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    text-transform: uppercase;
+    color: rgba(0, 0, 0, .5);
+}
+
+.bubble .bubble-arrow {
+    position: absolute;
+    width: 0;
+    bottom: 42px;
+    left: -16px;
+    height: 0;
+}
+
+.bubble.alt .bubble-arrow {
+    right: -2px;
+    bottom: 40px;
+    left: auto;
+}
+
+.bubble .bubble-arrow:after {
+    content: "";
+    position: absolute;
+    border: 0 solid transparent;
+    border-top: 9px solid var(--backgroundColor);
+    border-radius: 0 20px 0;
+    width: 15px;
+    height: 30px;
+    transform: rotate(145deg);
+}
+
+.bubble.alt .bubble-arrow:after {
+    transform: rotate(45deg) scaleY(-1);
+}
+
+
+@keyframes revealRight {
+    0% {
+        transform: scale(0) translate(100%, 100%) rotate(-25deg);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes hideRight {
+    0% {
+        transform: scale(1)  translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(0) translate(100%, 100%) rotate(-25deg);
+    }
+}
+
+@keyframes revealLeft {
+    0% {
+        transform: scale(0) translate(-100%, 100%) rotate(25deg);
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes hideLeft {
+    0% {
+        transform: scale(1)  translate(0, 0) rotate(0deg);
+    }
+
+    100% {
+        transform: scale(0) translate(-100%, 100%) rotate(25deg);
+    }
+}
