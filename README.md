@@ -22,3 +22,8 @@ all color names: https://github.com/bahamas10/css-color-names/blob/master/css-co
 
 <img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn%26Announce/IMG1.PNG" alt="" width="500">
 <img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn%26Announce/IMG2.PNG" alt="" width="1000">
+<h2>new overlay:</h2>
+<p>using the same background color here as on the normal background preset<br>
+using the same color on the rank as on the light color preset<br>
+using the same color on the text as on the text color preset</p>
+<img src="https://github.com/Yazaar/Project-Assets/blob/master/Streamlabs%20-%20Warn&Announce/img3.png?raw=true" alt="" width="1000">
