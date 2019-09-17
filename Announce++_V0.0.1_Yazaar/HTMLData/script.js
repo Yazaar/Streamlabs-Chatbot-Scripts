@@ -16,7 +16,7 @@ let soundKeyCode = new Howl({
     volume: settings.SoundKeyCodeVolume / 100
 })
 
-function RunEngine(userType, name, message, actionType, time, alt = false) {
+function RunEngine(userType, name, message, actionType, time, mute = false, alt = false) {
     if (userType === undefined || name === undefined || message === undefined) {
         return
     }
@@ -26,17 +26,23 @@ function RunEngine(userType, name, message, actionType, time, alt = false) {
         document.documentElement.style.setProperty('--backgroundColor', settings.BackgroundColorWarning)
         document.querySelector('.bubble .txt .name span:nth-child(1)').style.color = settings.LightColorWarning
         document.querySelector('.message').style.color = settings.TextColorWarning
-        soundWarning.play()
+        if (mute === false){
+            soundWarning.play()
+        }
     } else if (actionType.toLowerCase() === '-a') {
         document.documentElement.style.setProperty('--backgroundColor', settings.BackgroundColorAnnounce)
         document.querySelector('.bubble .txt .name span:nth-child(1)').style.color = settings.LightColorAnnounce
         document.querySelector('.message').style.color = settings.TextColorAnnounce
-        soundAnnounce.play()
+        if (mute === false){
+            soundAnnounce.play()
+        }
     } else {
         document.documentElement.style.setProperty('--backgroundColor', settings.BackgroundColorKeyCode)
         document.querySelector('.bubble .txt .name span:nth-child(1)').style.color = actionType
-        document.querySelector('.message').style.color = settings.TextColorKeyCode
-        soundKeyCode.play()
+        document.querySelector('.message').style.color = settings.TextColorKeyCod
+        if (mute === false){
+            soundKeyCode.play()
+        }
     }
 
     document.querySelector('.name span:nth-child(1)').innerText = userType
@@ -62,7 +68,7 @@ function RunEngine(userType, name, message, actionType, time, alt = false) {
         setTimeout(() => {
             if(queue.length > 0) {
                 let next = queue.splice(0, 1)[0]
-                RunEngine(next.userType, next.username, next.message, next.type, next.time, settings.ReverseMessage)
+                RunEngine(next.userType, next.username, next.message, next.type, next.time, next.mute, settings.ReverseMessage)
             } else {
                 running = false
             }
@@ -131,7 +137,7 @@ socket.onmessage = function (message) {
             time: MyTime
         })
     } else {
-        RunEngine(MyUserType, MyUsername, MyMessage, MyType, MyTime, settings.ReverseMessage)
+        RunEngine(MyUserType, MyUsername, MyMessage, MyType, MyTime, MyMute, settings.ReverseMessage)
     }
 
 }
