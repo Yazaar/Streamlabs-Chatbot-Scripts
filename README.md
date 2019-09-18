@@ -4,7 +4,7 @@ Give me suggestions on new scripts: https://goo.gl/forms/EQCQQ4xDUk45MzCL2 <br /
 I am no longer an active developer for this platform...<br /><br />
 
 How to install my scripts (method 1): <br />
-1. Install the PyInstaller script thru method 2 <a href="https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/blob/PyInstaller/PyInstaller.zip?raw=true">(DOWNLOAD)</a>
+1. Install the PyInstaller script through method 2 <a href="https://github.com/Yazaar/Streamlabs-Chatbot-Scripts/blob/PyInstaller/PyInstaller.zip?raw=true">(DOWNLOAD)</a>
 2. type "!pyinstall [script name]" in your chat to automatically install the script! <a href="https://yazaar.github.io/Streamlabs-PyInstaller-Properties/">(SCRIPTNAMES)</a>
 3. DONE! Do the same with other scripts on this list: https://yazaar.github.io/Streamlabs-PyInstaller-Properties/
 
