@@ -8,7 +8,7 @@ by giving them opportunities to claim points in form of your<br>
 streamlabs currency!<br><br>
 
 The amount of points and how often is fully customizable<br>
-thru streamlabs chatbots script settings UI.<br><br>
+through streamlabs chatbots script settings UI.<br><br>
 
 You are as well able to change every single message<br>
 to give it your own twist and style.<br><br>
