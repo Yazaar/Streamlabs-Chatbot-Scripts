@@ -4,7 +4,7 @@ Back to main screen: https://github.com/Yazaar/Streamlabs-Chatbot-Scripts <br>
 ----> Welcome to Announce++ - a script by Yazaar  <----<br>
 ------------------------------------------------------<br>
 Give your moderators the opportunity to easily reach all viewers!<br>
-Thru this script are specific users able to use commands to trigger an overlay on stream which includes their message and a sound as default. Look at the reference images underneath!<br><br>
+Through this script are specific users able to use commands to trigger an overlay on stream which includes their message and a sound as default. Look at the reference images underneath!<br><br>
 
 commands:<br>
 !popup -w MESSAGE >> Warning preset, with audio, standard color = red (the reference images)<br>
