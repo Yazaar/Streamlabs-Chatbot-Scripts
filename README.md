@@ -12,4 +12,4 @@ Includes: <br />
 That will calculate the chosen percentage of your total points and gamble that. <br />
 You can also input all to gamble all of your available points! <br /> <br />
 
-All settings is possible to change thru the chatbot.
+All settings are possible to change through the chatbot.
