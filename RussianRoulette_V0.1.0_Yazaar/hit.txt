@@ -1,0 +1,1 @@
+Roll $(Roll): $(CurrentUser) got shot straight to the skull and $(NextUser) earned a total of $(RouletteAmount) $(Currency)

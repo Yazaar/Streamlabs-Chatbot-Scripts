@@ -1,0 +1,43 @@
+Welcome to a 1v1 Russian Roulette game, made by Yazaar!
+
+Settings can be found inside of Streamlabs chatbot (click on this script in the scripts tab)
+
+How to use this script:
+
+!rr [accept/reject]     >> gamble that value
+!rr [user] [bet amount] >> gamble a random value between the 2 numbers
+
+You can find hit.txt and miss.txt in the same directory as this file, you may open it up manually or by clicking the "MISS MESSAGES" or "HIT MESSAGES" buttons
+(found on the bottom of the Messages group if you check the script settings)
+Each line is a unique response and a random one is picked on each roulette event
+
+Here is every single parameter that you are able to use in your chat messages:
+
+$(Username)              >> Replaced with the username (all lowercase)
+$(Display)               >> Replaced with the username (with capitalizations)
+$(CooldownLeft)          >> Replaced with the cooldown left for a specific user (in seconds)
+$(CurrencyAmount)        >> Replaced with the amount of currency the user has
+$(WinAmount)             >> Replaced with the number of points the user won thru the Russian roulette game
+$(RouletteAmount)        >> Replaced with the number of points the user is betting for the challenge
+$(AcceptDuration)        >> Replaced with the duration the target has to accept/reject the challenge
+$(BetDuration)           >> Replaced with the amount of time chat has to bet on a winner
+$(Roll)                  >> Replaced with the number of bullets that have been shot (1, 2, 3, 4, 5 and then 6)
+$(ChannelCooldownLeft)   >> Replaced with the amount of time in seconds until the channel cooldown is over.
+$(Target)                >> Replaced with the challenged/targeted user
+$(Challenger)            >> Replaced with the user which started the Russian roulette
+$(CurrentUser)           >> Replaced with the user which is currently shooting
+$(NextUser)              >> Replaced with the user which is not currently shooting
+$(TotalPersonalCooldown) >> Replaced with the personal cooldown duration (not what the user currently has, but how long it is to begin with)
+$(TotalChannelCooldown)  >> Replaced with the channel cooldown duration (not what the chat currently have, but how long it is to begin with)
+$(MinBet)                >> Replaced with the minimum possible bet
+$(MaxBet)                >> Replaced with the maximum possible bet (0 = infinite)
+$(BetAmount)             >> Replaced with the amount which the user betted
+$(MinRoulette)           >> Replaced with the minimum possible roulette bet
+$(MaxRoulette)           >> Replaced with the maximum possible roulette bet (0 = infinite)
+$(Currency)              >> Replaced with the currency name
+$(Command)               >> Replaced with the command syntax
+$(Permission)            >> Replaced with the currently required permission
+$(PermissionInfo)        >> Replaced with whatever is inside of the permission infobox
+
+I hope that you will enjoy this script,
+Happy Streaming [NAME_OF_USER]!

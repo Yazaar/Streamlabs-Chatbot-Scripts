@@ -1,0 +1,1 @@
+Roll $(Roll): $(CurrentUser) did not get hit, passed over the revolver.

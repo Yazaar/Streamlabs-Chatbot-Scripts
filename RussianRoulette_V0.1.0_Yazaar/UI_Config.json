@@ -1,0 +1,491 @@
+{
+  "output_file": "settings.json",
+
+  "Permission": {
+    "type": "dropdown",
+    "value": "Everyone",
+    "items": [
+      "Everyone",
+      "Regular",
+      "VIP+",
+      "VIP Exclusive",
+      "Subscriber",
+      "GameWisp Subscriber",
+      "User_Specific",
+      "Min_Rank",
+      "Min_Points",
+      "Min_Hours",
+      "Moderator",
+      "Editor",
+      "Caster"
+    ],
+    "label": "Command permission",
+    "tooltip": "Set the permission for use of command",
+    "group": "General"
+  },
+  "PermissionInfo": {
+    "type": "textbox",
+    "value": "",
+    "label": "Permission info",
+    "tooltip": "Leave blank, type a number or the specific users\n(like this: User1 User2 User3 User4)",
+    "group": "General"
+  },
+  "Command": {
+  "type": "textbox",
+  "value": "!rr",
+  "label": "Command",
+  "tooltip": "Change the command for this function",
+  "group": "General"
+  },
+  "BetDuration": {
+    "type": "numberbox",
+    "label": "Betting duration",
+    "value": 90,
+    "tooltip": "The amount of time (in seconds) players may bet on the winner.",
+    "group": "General"
+  },
+  "MinRoulette": {
+    "type": "numberbox",
+    "label": "Minimum roulette amount",
+    "value": 1,
+    "tooltip": "The minimum roulette amount that you may use when challenging a user.\nI would recommend nothing less than 1.",
+    "group": "General"
+  },
+  "MaxRoulette": {
+    "type": "numberbox",
+    "label": "Maximum roulette amount",
+    "value": 0,
+    "tooltip": "The maximum bet that you may use when challenging a user.\ninfinite = 0",
+    "group": "General"
+  },
+  "MinBet": {
+    "type": "numberbox",
+    "label": "Minimum bet amount",
+    "value": 1,
+    "tooltip": "The minimum bet that you may use when betting on a user.\nI would recommend nothing less than 1.",
+    "group": "General"
+  },
+  "MaxBet": {
+    "type": "numberbox",
+    "label": "Maximum bet amount",
+    "value": 0,
+    "tooltip": "The maximum bet that you may use when betting on a user.\ninfinite = 0",
+    "group": "General"
+  },
+  "DurationBetweenRounds": {
+    "type": "numberbox",
+    "label": "Duration between each roulette shot",
+    "value": 1,
+    "tooltip": "The duration (in seconds) between each roulette round (player 1 and player 2)",
+    "group": "General"
+  },
+  "PendingDuration": {
+    "type": "numberbox",
+    "label": "No response timeout",
+    "value": 30,
+    "tooltip": "The amount of seconds the target has to accept the challenge",
+    "group": "General"
+  },
+  "PersonalCooldown": {
+    "type": "numberbox",
+    "label": "Personal Cooldown",
+    "value": 10,
+    "tooltip": "Cooldown in seconds",
+    "group": "Cooldowns"
+  },
+  "ChannelCooldown": {
+    "type": "numberbox",
+    "label": "Channel Cooldown",
+    "value": 0,
+    "tooltip": "Cooldown in seconds",
+    "group": "Cooldowns"
+  },
+  "NoPermissionMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have no permission to use the command!",
+  "label": "No permission",
+  "tooltip": "Bot response if no permission to use command",
+  "group": "Messages"
+  },
+  "ShowPermissionMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display no permission message?",
+    "tooltip": "Display no permission message?",
+    "group": "Messages"
+  },
+  "PersonalCooldownMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have $(CooldownLeft) seconds left on your cooldown!",
+  "label": "Personal cooldown",
+  "tooltip": "Bot response if the command is on personal cooldown",
+  "group": "Messages"
+  },
+  "ShowPersonalCooldownMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display personal cooldown message?",
+    "tooltip": "Display Personal Cooldown message?",
+    "group": "Messages"
+  },
+  "ChannelCooldownMessage": {
+  "type": "textbox",
+  "value": "$(Display), there is a channel cooldown on $(ChannelCooldownLeft) seconds!",
+  "label": "Channel cooldown",
+  "tooltip": "Bot response if the command is on channel cooldown",
+  "group": "Messages"
+  },
+  "ShowChannelCooldownMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display channel cooldown message?",
+    "tooltip": "Display channel cooldown message?",
+    "group": "Messages"
+  },
+  "BetYourselfMessage": {
+  "type": "textbox",
+  "value": "$(Display), you are unable to bet on your own game.",
+  "label": "Bet on their own game",
+  "tooltip": "Bot response if someone is trying to bet on their own game.",
+  "group": "Messages"
+  },
+  "ShowBetYourselfMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display bet on your own game message?",
+    "tooltip": "Display bet on thir own game message?",
+    "group": "Messages"
+  },
+  "AlreadyBettedMessage": {
+  "type": "textbox",
+  "value": "$(Display) has betted already.",
+  "label": "Double bet message",
+  "tooltip": "Bot response if someone is trying bet twice.",
+  "group": "Messages"
+  },
+  "ShowAlreadyBettedMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display double bet message?",
+    "tooltip": "Display double bet message?",
+    "group": "Messages"
+  },
+  "BetOutOfRangeDownMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have to bet at least $(MinBet) $(Currency)",
+  "label": "Bet too low message",
+  "tooltip": "Bot response if someone is trying bet under the limit.",
+  "group": "Messages"
+  },
+  "ShowBetOutOfRangeDownMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display bet too low message?",
+    "tooltip": "Display when someone is trying bet under the limit?",
+    "group": "Messages"
+  },
+  "BetOutOfRangeUpMessage": {
+  "type": "textbox",
+  "value": "$(Display), you are unable to bet more than $(MaxBet) $(Currency)",
+  "label": "Bet too high message",
+  "tooltip": "Bot response if someone is trying to bet above the limit.",
+  "group": "Messages"
+  },
+  "ShowBetOutOfRangeUpMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display bet too high message?",
+    "tooltip": "Display when someone is trying bet under the limit?",
+    "group": "Messages"
+  },
+  "NotEnoughPointsMessage": {
+  "type": "textbox",
+  "value": "$(Display) does not have enough $(Currency) to bet $(BetAmount)",
+  "label": "Not enough points to bet message",
+  "tooltip": "Bot response if someone is betting above what they own.",
+  "group": "Messages"
+  },
+  "ShowNotEnoughPointsMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display double bet message?",
+    "tooltip": "Display when someone is betting above their points limit?",
+    "group": "Messages"
+  },
+  "BetCompleteMessage": {
+  "type": "textbox",
+  "value": "$(Display) betted on $(Challenger)",
+  "label": "Bet complete message",
+  "tooltip": "Bot response when a bet has been placed.",
+  "group": "Messages"
+  },
+  "ShowBetCompleteMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display bet complete message?",
+    "tooltip": "Display bet complete message?",
+    "group": "Messages"
+  },
+  "InvalidBetMessage": {
+  "type": "textbox",
+  "value": "Invalid bet, try: $(Command) username/challenger/target [AMOUNT]",
+  "label": "Invalid bet message",
+  "tooltip": "Bot response when a bet is invalid, and aborted.",
+  "group": "Messages"
+  },
+  "ShowInvalidBetMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display invalid bet message?",
+    "tooltip": "Display invalid bet message?",
+    "group": "Messages"
+  },
+  "GameInProgressMessage": {
+  "type": "textbox",
+  "value": "A game is in progress already. Please wait.",
+  "label": "Game already running message",
+  "tooltip": "Bot response when a game is running already.",
+  "group": "Messages"
+  },
+  "ShowGameInProgressMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display game already running message",
+    "tooltip": "Display game already running message?",
+    "group": "Messages"
+  },
+  "NotChallengedMessage": {
+  "type": "textbox",
+  "value": "You are not challenged, $(Display).",
+  "label": "Not challenged message",
+  "tooltip": "Bot response you have nothing to accept/reject.",
+  "group": "Messages"
+  },
+  "ShowNotChallengedMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display not challenged message?",
+    "tooltip": "Display not challenged message?",
+    "group": "Messages"
+  },
+  "TooLowRouletteMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have to bet at least $(MinRoulette) $(Currency)",
+  "label": "Roulette too low",
+  "tooltip": "Bot response if roulette is too low",
+  "group": "Messages"
+  },
+  "ShowTooLowRouletteMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display too low roulette message?",
+    "tooltip": "Display too low roulette message?",
+    "group": "Messages"
+  },
+  "TooHighRouletteMessage": {
+  "type": "textbox",
+  "value": "$(Display), you are unable to bet more than $(MaxRoulette) $(Currency)",
+  "label": "Roulette too high",
+  "tooltip": "Bot response if roulette is too high",
+  "group": "Messages"
+  },
+  "ShowTooHighRouletteMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display roulette too high message?",
+    "tooltip": "Display roulette too high message?",
+    "group": "Messages"
+  },
+  "RouletteAcceptedMessage": {
+  "type": "textbox",
+  "value": "$(Display) accepted the challenge against $(Challenger) and betting has begun (active for $(BetDuration) seconds).",
+  "label": "Roulette accepted message",
+  "tooltip": "Bot response when someone accepts a challenge.",
+  "group": "Messages"
+  },
+  "ShowRouletteAcceptedMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display roulette accepted message message?",
+    "tooltip": "Display roulette accepted message message?",
+    "group": "Messages"
+  },
+  "ChallengeYourselfMessage": {
+  "type": "textbox",
+  "value": "You are unable to challenge yourself, but nice try!",
+  "label": "Challenge yourself message",
+  "tooltip": "Bot response when someone tries to challenge themselves.",
+  "group": "Messages"
+  },
+  "ShowChallengeYourselfMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display challenge yourself message message?",
+    "tooltip": "Display challenge yourself message message?",
+    "group": "Messages"
+  },
+  "InvalidRouletteNumberMessage": {
+  "type": "textbox",
+  "value": "Argument 3 has to be a number: $(Command) [USER] [BET AMOUNT]",
+  "label": "Invalid roulette number",
+  "tooltip": "Bot response if someone bets an invalid amount",
+  "group": "Messages"
+  },
+  "ShowInvalidRouletteNumberMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display invalid roulette number message?",
+    "tooltip": "Display invalid roulette number message?",
+    "group": "Messages"
+  },
+  "RouletteTooLowMessage": {
+  "type": "textbox",
+  "value": "$(Display), you have to bet at least $(MinRoulette) $(Currency)",
+  "label": "Roulette value too low",
+  "tooltip": "Bot response if someone tries to bet underneath the minimum value.",
+  "group": "Messages"
+  },
+  "ShowRouletteTooLowMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display roulette value too low message?",
+    "tooltip": "Display roulette value too low message?",
+    "group": "Messages"
+  },
+  "RouletteTooHighMessage": {
+  "type": "textbox",
+  "value": "$(Display), you are unable to bet more than $(MaxRoulette) $(Currency)",
+  "label": "Roulette value too high",
+  "tooltip": "Bot response when someone tries to bet above the max roulette value.",
+  "group": "Messages"
+  },
+  "ShowRouletteTooHighMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display roulette value too high message?",
+    "tooltip": "Display roulette value too high message?",
+    "group": "Messages"
+  },
+  "ChallengerNotEnoughPointsMessage": {
+  "type": "textbox",
+  "value": "$(Challenger) needs at least $(RouletteAmount) $(Currency) to continue...",
+  "label": "Challenger not enough points",
+  "tooltip": "Bot response when the challenger does not have enough points to start a challenge with that high of an amount.",
+  "group": "Messages"
+  },
+  "ShowChallengerNotEnoughPointsMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display challenger not enough points message?",
+    "tooltip": "Display challenger not enough points message?",
+    "group": "Messages"
+  },
+  "TargetNotEnoughPointsMessage": {
+  "type": "textbox",
+  "value": "$(Target) needs at least $(RouletteAmount) $(Currency) to continue...",
+  "label": "Target not enough points",
+  "tooltip": "Bot response when a bet has been placed.",
+  "group": "Messages"
+  },
+  "ShowTargetNotEnoughPointsMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display target not enough points message?",
+    "tooltip": "Display new bet message?",
+    "group": "Messages"
+  },
+  "ChallengeCompleteMessage": {
+  "type": "textbox",
+  "value": "$(Display) challenged $(Target) in Russian Roulette, with a bet of $(RouletteAmount) $(Currency)!",
+  "label": "Challange completed",
+  "tooltip": "Bot response when a russian roulette is completed.",
+  "group": "Messages"
+  },
+  "ShowChallengeCompleteMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display challange completed message?",
+    "tooltip": "Display challange completed message?",
+    "group": "Messages"
+  },
+  "RejectMessage": {
+  "type": "textbox",
+  "value": "$(Display) rejected your challenge $(Challenger).",
+  "label": "Challange rejected",
+  "tooltip": "Bot response if the challenge was rejected.",
+  "group": "Messages"
+  },
+  "ShowRejectMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display challange rejected message?",
+    "tooltip": "Display challange rejected message?",
+    "group": "Messages"
+  },
+  "HelpMessage": {
+  "type": "textbox",
+  "value": "Start a 1v1 Russian Roulette through: $(Command) [USER] [BET AMOUNT]",
+  "label": "Help message",
+  "tooltip": "Bot response if invalid syntax (!command all alone as an example).",
+  "group": "Messages"
+  },
+  "ShowHelpMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display help message message?",
+    "tooltip": "Display help message message?",
+    "group": "Messages"
+  },
+  "TargetNoResponseMessage": {
+  "type": "textbox",
+  "value": "$(Target) never responded and the game has been canceled.",
+  "label": "Target never responded",
+  "tooltip": "Bot response when the challenger never responded within the set timespan.",
+  "group": "Messages"
+  },
+  "ShowTargetNoResponseMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display target never responded message?",
+    "tooltip": "Display target never responded message?",
+    "group": "Messages"
+  },
+  "BeginningMessage": {
+  "type": "textbox",
+  "value": "The revolver has been prepared and the game has begun.",
+  "label": "Russian Roulette starting",
+  "tooltip": "Bot response when russian roulette about to start.",
+  "group": "Messages"
+  },
+  "ShowBeginningMessage": {
+    "type": "checkbox",
+    "value": true,
+    "label": "Display Russian Roulette starting message?",
+    "tooltip": "Display Russian Roulette starting message?",
+    "group": "Messages"
+  },
+  "MissMessages": {
+    "type": "button",
+    "label": "Miss Messages",
+    "tooltip": "1 message on each line, picked randomly",
+    "function": "OpenMissRussianRouletteMessagesScript",
+    "wsevent": "",
+    "group": "Messages"
+  },
+  "HitMessages": {
+    "type": "button",
+    "label": "Hit Messages",
+    "tooltip": "1 message on each line, picked randomly",
+    "function": "OpenHitRussianRouletteMessagesScript",
+    "wsevent": "",
+    "group": "Messages"
+  },
+  "ReloadButton": {
+    "type": "button",
+    "label": "Reload settings",
+    "tooltip": "Reload script settings, make sure to save first.",
+    "function": "ReloadRussianRouletteScript",
+    "wsevent": "",
+    "group": ""
+  }
+}
