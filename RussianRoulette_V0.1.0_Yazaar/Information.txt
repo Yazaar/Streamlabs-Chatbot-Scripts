@@ -4,8 +4,9 @@ Settings can be found inside of Streamlabs chatbot (click on this script in the 
 
 How to use this script:
 
-!rr [accept/reject]     >> gamble that value
-!rr [user] [bet amount] >> gamble a random value between the 2 numbers
+!rr [accept/reject]                           >> accept or reject a challenge
+!rr [user] [bet amount]                       >> challange a user
+!rr [target/challenger/username] [bet amount] >> bet on a Russian roulette winner
 
 You can find hit.txt and miss.txt in the same directory as this file, you may open it up manually or by clicking the "MISS MESSAGES" or "HIT MESSAGES" buttons
 (found on the bottom of the Messages group if you check the script settings)

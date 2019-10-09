@@ -176,7 +176,7 @@ def Execute(data):
 	Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
 	Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 
-	if data.GetParamCount() > 2:
+	if data.GetParamCount() > 2 and GameState != 2:
 		if GameState != 0:
 			if Settings['ShowGameInProgressMessage'] == True:
 				Parent.SendStreamMessage(ConvertMessage(data, Settings['GameInProgressMessage']))
