@@ -14,7 +14,7 @@ ScriptName = "Russian Roulette"
 Website = "https://www.twitch.tv/yazaar"
 Description = "1v1 Russian Roulette"
 Creator = "Yazaar"
-Version = "0.1.0"
+Version = "0.1.1"
 #---------------------------------------
 # Variables
 #---------------------------------------
@@ -169,14 +169,15 @@ def Execute(data):
 		return
 
 	if NoPermission(data, Settings['Permission'], Settings['PermissionInfo']):
+		Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
+		Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 		if Settings['ShowPermissionMessage'] == True:
 			Parent.SendStreamMessage(ConvertMessage(data, Settings['NoPermissionMessage']))
 		return
-	
-	Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
-	Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 
 	if data.GetParamCount() > 2 and GameState != 2:
+		Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
+		Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 		if GameState != 0:
 			if Settings['ShowGameInProgressMessage'] == True:
 				Parent.SendStreamMessage(ConvertMessage(data, Settings['GameInProgressMessage']))
@@ -224,6 +225,8 @@ def Execute(data):
 		return
 
 	if GameState == 2 and data.GetParamCount() > 2:
+		Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
+		Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 		if (datetime.datetime.now() - timer).total_seconds() < Settings['BetDuration']:
 			if data.User == challenger or data.User == target:
 				if Settings['ShowBetYourselfMessage'] == True:
@@ -277,6 +280,8 @@ def Execute(data):
 
 	if data.GetParamCount() > 1:
 		if data.GetParam(1).lower() == 'accept':
+			Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
+			Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 			if GameState != 1 or data.User != target:
 				if Settings['ShowNotChallengedMessage'] == True:
 					Parent.SendStreamMessage(ConvertMessage(data, Settings['NotChallengedMessage']))
@@ -301,6 +306,8 @@ def Execute(data):
 				Parent.SendStreamMessage(ConvertMessage(data, Settings['RouletteAcceptedMessage']))
 			return
 		elif data.GetParam(1).lower() == 'reject':
+			Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
+			Parent.AddUserCooldown(ScriptName, Settings['Command'], data.User, Settings['PersonalCooldown'])
 			if GameState != 1 and (data.User != target or data.User != challenger):
 				if Settings['ShowNotChallengedMessage'] == True:
 					Parent.SendStreamMessage(ConvertMessage(data, Settings['NotChallengedMessage']))
@@ -309,7 +316,7 @@ def Execute(data):
 			if Settings['ShowRejectMessage'] == True:
 				Parent.SendStreamMessage(ConvertMessage(data, Settings['RejectMessage']))
 			return
-	
+	Parent.AddCooldown(ScriptName, Settings['Command'], Settings['ChannelCooldown'])
 	if Settings['ShowHelpMessage'] == True:
 		Parent.SendStreamMessage(ConvertMessage(data, Settings['HelpMessage']))
 
