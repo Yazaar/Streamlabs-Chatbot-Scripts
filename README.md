@@ -1,6 +1,5 @@
 # Streamlabs Chatbot Scripts 
 # Change branches for different scripts!
-Give me suggestions on new scripts: https://goo.gl/forms/EQCQQ4xDUk45MzCL2 <br />
 I am no longer an active developer for this platform...<br /><br />
 
 How to install my scripts (method 1): <br />
